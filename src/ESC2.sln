@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StigScriptGenerator", "apps\StigScriptGenerator\StigScriptGenerator.csproj", "{055EF432-2BE1-48D0-AEB7-425FC6EFEFE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{63BB8C72-993D-4D50-B160-D077AB6BC9E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{4530F1FE-9759-44EB-A1E8-B9E24998F390}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESC2.Library.Data", "libraries\ECS2.Library.Data\ESC2.Library.Data.csproj", "{2F9D10D4-3FD6-45CE-A204-854BF1181B6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESC2.Library.Stig", "libraries\ESC2.Library.Stig\ESC2.Library.Stig.csproj", "{1FE676E8-761E-4A55-939E-AB67220DECB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESC2.Library.Data.Scripts", "libraries\ESC2.Library.Data.Scripts\ESC2.Library.Data.Scripts.csproj", "{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{055EF432-2BE1-48D0-AEB7-425FC6EFEFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{055EF432-2BE1-48D0-AEB7-425FC6EFEFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{055EF432-2BE1-48D0-AEB7-425FC6EFEFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{055EF432-2BE1-48D0-AEB7-425FC6EFEFE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F9D10D4-3FD6-45CE-A204-854BF1181B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F9D10D4-3FD6-45CE-A204-854BF1181B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F9D10D4-3FD6-45CE-A204-854BF1181B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F9D10D4-3FD6-45CE-A204-854BF1181B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FE676E8-761E-4A55-939E-AB67220DECB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FE676E8-761E-4A55-939E-AB67220DECB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FE676E8-761E-4A55-939E-AB67220DECB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FE676E8-761E-4A55-939E-AB67220DECB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{055EF432-2BE1-48D0-AEB7-425FC6EFEFE6} = {63BB8C72-993D-4D50-B160-D077AB6BC9E1}
+		{2F9D10D4-3FD6-45CE-A204-854BF1181B6F} = {4530F1FE-9759-44EB-A1E8-B9E24998F390}
+		{1FE676E8-761E-4A55-939E-AB67220DECB8} = {4530F1FE-9759-44EB-A1E8-B9E24998F390}
+		{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E} = {4530F1FE-9759-44EB-A1E8-B9E24998F390}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C35DB5AE-74C3-42E3-B52A-5C89FADD2C1F}
+	EndGlobalSection
+EndGlobal
