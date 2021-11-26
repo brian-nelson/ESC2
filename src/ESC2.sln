@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{63BB8C72-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{4530F1FE-9759-44EB-A1E8-B9E24998F390}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESC2.Library.Data", "libraries\ECS2.Library.Data\ESC2.Library.Data.csproj", "{2F9D10D4-3FD6-45CE-A204-854BF1181B6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESC2.Library.Data", "libraries\ESC2.Library.Data\ESC2.Library.Data.csproj", "{2F9D10D4-3FD6-45CE-A204-854BF1181B6F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESC2.Library.Stig", "libraries\ESC2.Library.Stig\ESC2.Library.Stig.csproj", "{1FE676E8-761E-4A55-939E-AB67220DECB8}"
 EndProject

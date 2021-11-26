@@ -1,0 +1,67 @@
+{
+  "UseSchemas": false,
+  "ProjectFolder": "libraries\\ESC2.Library.Data",
+  "BaseNamespace": "ESC2.Library.Data",
+  "Tables": [
+    {
+      "Schema": "dbo",
+      "Name": "asset_group"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "asset_type"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "asset"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "department"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "employee"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "user"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "stig"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "version"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "rule"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "implementation"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "implementation_rule"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "audit"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "audit_rule"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "evidence_set"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "evidence"
+    }
+  ]
+}
