@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using ESC2.Library.Data.Scripts.Generators;
 using ESC2.Library.Stig.Readers;
 

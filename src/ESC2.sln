@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESC2.Library.Data", "librar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESC2.Library.Stig", "libraries\ESC2.Library.Stig\ESC2.Library.Stig.csproj", "{1FE676E8-761E-4A55-939E-AB67220DECB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESC2.Library.Data.Scripts", "libraries\ESC2.Library.Data.Scripts\ESC2.Library.Data.Scripts.csproj", "{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESC2.Library.Data.Scripts", "libraries\ESC2.Library.Data.Scripts\ESC2.Library.Data.Scripts.csproj", "{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESC2.Library.Etl", "libraries\ESC2.Library.Etl\ESC2.Library.Etl.csproj", "{9C3EE484-90A4-4707-9C1C-F53670EBCC87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C3EE484-90A4-4707-9C1C-F53670EBCC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C3EE484-90A4-4707-9C1C-F53670EBCC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C3EE484-90A4-4707-9C1C-F53670EBCC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C3EE484-90A4-4707-9C1C-F53670EBCC87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{2F9D10D4-3FD6-45CE-A204-854BF1181B6F} = {4530F1FE-9759-44EB-A1E8-B9E24998F390}
 		{1FE676E8-761E-4A55-939E-AB67220DECB8} = {4530F1FE-9759-44EB-A1E8-B9E24998F390}
 		{B1D1C60E-AC7A-4745-ABB5-2550BD33B14E} = {4530F1FE-9759-44EB-A1E8-B9E24998F390}
+		{9C3EE484-90A4-4707-9C1C-F53670EBCC87} = {4530F1FE-9759-44EB-A1E8-B9E24998F390}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C35DB5AE-74C3-42E3-B52A-5C89FADD2C1F}

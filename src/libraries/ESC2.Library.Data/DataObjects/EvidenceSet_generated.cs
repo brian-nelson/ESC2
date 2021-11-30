@@ -13,6 +13,7 @@ namespace ESC2.Library.Data.DataObjects
     {
         public EvidenceSet()
         {
+            Id = Guid.NewGuid();
         }
 
         public Guid Id { get; set; }
