@@ -30,6 +30,8 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[employee].[FamilyName],
                 [dbo].[employee].[Email],
                 [dbo].[employee].[JobTitle],
+                [dbo].[employee].[StartDate],
+                [dbo].[employee].[EndDate],
                 [dbo].[employee].[DepartmentId])
             VALUES ( 
                 @Id,
@@ -37,6 +39,8 @@ namespace ESC2.Library.Data.Repos
                 @FamilyName,
                 @Email,
                 @JobTitle,
+                @StartDate,
+                @EndDate,
                 @DepartmentId) ";
 
         public override string UpdateSql => @"
@@ -45,6 +49,8 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[employee].[family_name]=@FamilyName,
                 [dbo].[employee].[email]=@Email,
                 [dbo].[employee].[job_title]=@JobTitle,
+                [dbo].[employee].[start_date]=@StartDate,
+                [dbo].[employee].[end_date]=@EndDate,
                 [dbo].[employee].[department_id]=@DepartmentId
             WHERE [dbo].[employee].[employee_id]=@Id ";
 
@@ -54,6 +60,8 @@ namespace ESC2.Library.Data.Repos
                    [dbo].[employee].[family_name],
                    [dbo].[employee].[email],
                    [dbo].[employee].[job_title],
+                   [dbo].[employee].[start_date],
+                   [dbo].[employee].[end_date],
                    [dbo].[employee].[department_id]
             FROM [dbo].[employee] ";
 
@@ -65,6 +73,8 @@ namespace ESC2.Library.Data.Repos
             obj.FamilyName = row.GetString("family_name");
             obj.Email = row.GetString("email");
             obj.JobTitle = row.GetString("job_title");
+            obj.StartDate = row.GetDateTime("start_date");
+            obj.EndDate = row.GetNullableDateTime("end_date");
             obj.DepartmentId = row.GetGuid("department_id");
             return obj;
         }
@@ -78,6 +88,8 @@ namespace ESC2.Library.Data.Repos
              parameters.Add(new DbQueryParameter("FamilyName", obj.FamilyName, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("Email", obj.Email, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("JobTitle", obj.JobTitle, DbQueryParameterType.String));
+             parameters.Add(new DbQueryParameter("StartDate", obj.StartDate, DbQueryParameterType.DateTime));
+             parameters.Add(new DbQueryParameter("EndDate", obj.EndDate, DbQueryParameterType.DateTime));
              parameters.Add(new DbQueryParameter("DepartmentId", obj.DepartmentId, DbQueryParameterType.Guid));
 
              return parameters;

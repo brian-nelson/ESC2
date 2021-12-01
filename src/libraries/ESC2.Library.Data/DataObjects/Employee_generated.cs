@@ -21,6 +21,8 @@ namespace ESC2.Library.Data.DataObjects
         public string FamilyName { get; set; }
         public string Email { get; set; }
         public string JobTitle { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public Guid DepartmentId { get; set; }
     }
 }

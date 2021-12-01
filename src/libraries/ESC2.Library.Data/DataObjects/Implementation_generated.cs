@@ -24,5 +24,7 @@ namespace ESC2.Library.Data.DataObjects
         public Guid? AssignedUserId { get; set; }
         public Guid AssetId { get; set; }
         public Guid StigId { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime LastModifiedOn { get; set; }
     }
 }

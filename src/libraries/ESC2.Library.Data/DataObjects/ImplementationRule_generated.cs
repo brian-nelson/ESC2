@@ -19,11 +19,14 @@ namespace ESC2.Library.Data.DataObjects
         public Guid Id { get; set; }
         public Guid RuleId { get; set; }
         public Guid ImplementationId { get; set; }
+        public Guid? AdjustmentId { get; set; }
         public string Status { get; set; }
         public string FindingDetails { get; set; }
         public string Comments { get; set; }
         public string SeverityOverride { get; set; }
         public string SeverityJustification { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime LastModifiedOn { get; set; }
         public Guid? EvidenceSetId { get; set; }
     }
 }

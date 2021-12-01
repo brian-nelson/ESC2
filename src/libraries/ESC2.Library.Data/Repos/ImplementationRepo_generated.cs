@@ -32,7 +32,9 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[implementation].[Summary],
                 [dbo].[implementation].[AssignedUserId],
                 [dbo].[implementation].[AssetId],
-                [dbo].[implementation].[StigId])
+                [dbo].[implementation].[StigId],
+                [dbo].[implementation].[CreatedOn],
+                [dbo].[implementation].[LastModifiedOn])
             VALUES ( 
                 @Id,
                 @StartDate,
@@ -41,7 +43,9 @@ namespace ESC2.Library.Data.Repos
                 @Summary,
                 @AssignedUserId,
                 @AssetId,
-                @StigId) ";
+                @StigId,
+                @CreatedOn,
+                @LastModifiedOn) ";
 
         public override string UpdateSql => @"
             UPDATE [dbo].[implementation] 
@@ -51,7 +55,9 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[implementation].[summary]=@Summary,
                 [dbo].[implementation].[assigned_user_id]=@AssignedUserId,
                 [dbo].[implementation].[asset_id]=@AssetId,
-                [dbo].[implementation].[stig_id]=@StigId
+                [dbo].[implementation].[stig_id]=@StigId,
+                [dbo].[implementation].[created_on]=@CreatedOn,
+                [dbo].[implementation].[last_modified_on]=@LastModifiedOn
             WHERE [dbo].[implementation].[implementation_id]=@Id ";
 
         public override string SelectSql => @"
@@ -62,7 +68,9 @@ namespace ESC2.Library.Data.Repos
                    [dbo].[implementation].[summary],
                    [dbo].[implementation].[assigned_user_id],
                    [dbo].[implementation].[asset_id],
-                   [dbo].[implementation].[stig_id]
+                   [dbo].[implementation].[stig_id],
+                   [dbo].[implementation].[created_on],
+                   [dbo].[implementation].[last_modified_on]
             FROM [dbo].[implementation] ";
 
         public override ESC2.Library.Data.DataObjects.Implementation ToObject(DataRow row)
@@ -76,6 +84,8 @@ namespace ESC2.Library.Data.Repos
             obj.AssignedUserId = row.GetNullableGuid("assigned_user_id");
             obj.AssetId = row.GetGuid("asset_id");
             obj.StigId = row.GetGuid("stig_id");
+            obj.CreatedOn = row.GetDateTime("created_on");
+            obj.LastModifiedOn = row.GetDateTime("last_modified_on");
             return obj;
         }
 
@@ -91,6 +101,8 @@ namespace ESC2.Library.Data.Repos
              parameters.Add(new DbQueryParameter("AssignedUserId", obj.AssignedUserId, DbQueryParameterType.Guid));
              parameters.Add(new DbQueryParameter("AssetId", obj.AssetId, DbQueryParameterType.Guid));
              parameters.Add(new DbQueryParameter("StigId", obj.StigId, DbQueryParameterType.Guid));
+             parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
+             parameters.Add(new DbQueryParameter("LastModifiedOn", obj.LastModifiedOn, DbQueryParameterType.DateTime));
 
              return parameters;
          }

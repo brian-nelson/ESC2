@@ -28,32 +28,41 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[implementation_rule].[ImplementationRuleId],
                 [dbo].[implementation_rule].[RuleId],
                 [dbo].[implementation_rule].[ImplementationId],
+                [dbo].[implementation_rule].[AdjustmentId],
                 [dbo].[implementation_rule].[Status],
                 [dbo].[implementation_rule].[FindingDetails],
                 [dbo].[implementation_rule].[Comments],
                 [dbo].[implementation_rule].[SeverityOverride],
                 [dbo].[implementation_rule].[SeverityJustification],
+                [dbo].[implementation_rule].[CreatedOn],
+                [dbo].[implementation_rule].[LastModifiedOn],
                 [dbo].[implementation_rule].[EvidenceSetId])
             VALUES ( 
                 @Id,
                 @RuleId,
                 @ImplementationId,
+                @AdjustmentId,
                 @Status,
                 @FindingDetails,
                 @Comments,
                 @SeverityOverride,
                 @SeverityJustification,
+                @CreatedOn,
+                @LastModifiedOn,
                 @EvidenceSetId) ";
 
         public override string UpdateSql => @"
             UPDATE [dbo].[implementation_rule] 
             SET [dbo].[implementation_rule].[rule_id]=@RuleId,
                 [dbo].[implementation_rule].[implementation_id]=@ImplementationId,
+                [dbo].[implementation_rule].[adjustment_id]=@AdjustmentId,
                 [dbo].[implementation_rule].[status]=@Status,
                 [dbo].[implementation_rule].[finding_details]=@FindingDetails,
                 [dbo].[implementation_rule].[comments]=@Comments,
                 [dbo].[implementation_rule].[severity_override]=@SeverityOverride,
                 [dbo].[implementation_rule].[severity_justification]=@SeverityJustification,
+                [dbo].[implementation_rule].[created_on]=@CreatedOn,
+                [dbo].[implementation_rule].[last_modified_on]=@LastModifiedOn,
                 [dbo].[implementation_rule].[evidence_set_id]=@EvidenceSetId
             WHERE [dbo].[implementation_rule].[implementation_rule_id]=@Id ";
 
@@ -61,11 +70,14 @@ namespace ESC2.Library.Data.Repos
             SELECT [dbo].[implementation_rule].[implementation_rule_id],
                    [dbo].[implementation_rule].[rule_id],
                    [dbo].[implementation_rule].[implementation_id],
+                   [dbo].[implementation_rule].[adjustment_id],
                    [dbo].[implementation_rule].[status],
                    [dbo].[implementation_rule].[finding_details],
                    [dbo].[implementation_rule].[comments],
                    [dbo].[implementation_rule].[severity_override],
                    [dbo].[implementation_rule].[severity_justification],
+                   [dbo].[implementation_rule].[created_on],
+                   [dbo].[implementation_rule].[last_modified_on],
                    [dbo].[implementation_rule].[evidence_set_id]
             FROM [dbo].[implementation_rule] ";
 
@@ -75,11 +87,14 @@ namespace ESC2.Library.Data.Repos
             obj.Id = row.GetGuid("implementation_rule_id");
             obj.RuleId = row.GetGuid("rule_id");
             obj.ImplementationId = row.GetGuid("implementation_id");
+            obj.AdjustmentId = row.GetNullableGuid("adjustment_id");
             obj.Status = row.GetString("status");
             obj.FindingDetails = row.GetString("finding_details");
             obj.Comments = row.GetString("comments");
             obj.SeverityOverride = row.GetString("severity_override");
             obj.SeverityJustification = row.GetString("severity_justification");
+            obj.CreatedOn = row.GetDateTime("created_on");
+            obj.LastModifiedOn = row.GetDateTime("last_modified_on");
             obj.EvidenceSetId = row.GetNullableGuid("evidence_set_id");
             return obj;
         }
@@ -91,11 +106,14 @@ namespace ESC2.Library.Data.Repos
              parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
              parameters.Add(new DbQueryParameter("RuleId", obj.RuleId, DbQueryParameterType.Guid));
              parameters.Add(new DbQueryParameter("ImplementationId", obj.ImplementationId, DbQueryParameterType.Guid));
+             parameters.Add(new DbQueryParameter("AdjustmentId", obj.AdjustmentId, DbQueryParameterType.Guid));
              parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("FindingDetails", obj.FindingDetails, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("Comments", obj.Comments, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("SeverityOverride", obj.SeverityOverride, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("SeverityJustification", obj.SeverityJustification, DbQueryParameterType.String));
+             parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
+             parameters.Add(new DbQueryParameter("LastModifiedOn", obj.LastModifiedOn, DbQueryParameterType.DateTime));
              parameters.Add(new DbQueryParameter("EvidenceSetId", obj.EvidenceSetId, DbQueryParameterType.Guid));
 
              return parameters;

@@ -31,6 +31,7 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[rule].[Severity],
                 [dbo].[rule].[Version],
                 [dbo].[rule].[Title],
+                [dbo].[rule].[Discussion],
                 [dbo].[rule].[Fix],
                 [dbo].[rule].[Check],
                 [dbo].[rule].[Cci])
@@ -41,6 +42,7 @@ namespace ESC2.Library.Data.Repos
                 @Severity,
                 @Version,
                 @Title,
+                @Discussion,
                 @Fix,
                 @Check,
                 @Cci) ";
@@ -52,6 +54,7 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[rule].[severity]=@Severity,
                 [dbo].[rule].[version]=@Version,
                 [dbo].[rule].[title]=@Title,
+                [dbo].[rule].[discussion]=@Discussion,
                 [dbo].[rule].[fix]=@Fix,
                 [dbo].[rule].[check]=@Check,
                 [dbo].[rule].[cci]=@Cci
@@ -64,6 +67,7 @@ namespace ESC2.Library.Data.Repos
                    [dbo].[rule].[severity],
                    [dbo].[rule].[version],
                    [dbo].[rule].[title],
+                   [dbo].[rule].[discussion],
                    [dbo].[rule].[fix],
                    [dbo].[rule].[check],
                    [dbo].[rule].[cci]
@@ -78,6 +82,7 @@ namespace ESC2.Library.Data.Repos
             obj.Severity = row.GetString("severity");
             obj.Version = row.GetString("version");
             obj.Title = row.GetString("title");
+            obj.Discussion = row.GetString("discussion");
             obj.Fix = row.GetString("fix");
             obj.Check = row.GetString("check");
             obj.Cci = row.GetString("cci");
@@ -94,6 +99,7 @@ namespace ESC2.Library.Data.Repos
              parameters.Add(new DbQueryParameter("Severity", obj.Severity, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("Version", obj.Version, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("Title", obj.Title, DbQueryParameterType.String));
+             parameters.Add(new DbQueryParameter("Discussion", obj.Discussion, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("Fix", obj.Fix, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("Check", obj.Check, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("Cci", obj.Cci, DbQueryParameterType.String));

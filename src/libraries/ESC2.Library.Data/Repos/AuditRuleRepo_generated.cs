@@ -30,6 +30,8 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[audit_rule].[Status],
                 [dbo].[audit_rule].[RuleId],
                 [dbo].[audit_rule].[AuditId],
+                [dbo].[audit_rule].[CreatedOn],
+                [dbo].[audit_rule].[LastModifiedOn],
                 [dbo].[audit_rule].[EvidenceSetId])
             VALUES ( 
                 @Id,
@@ -37,6 +39,8 @@ namespace ESC2.Library.Data.Repos
                 @Status,
                 @RuleId,
                 @AuditId,
+                @CreatedOn,
+                @LastModifiedOn,
                 @EvidenceSetId) ";
 
         public override string UpdateSql => @"
@@ -45,6 +49,8 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[audit_rule].[status]=@Status,
                 [dbo].[audit_rule].[rule_id]=@RuleId,
                 [dbo].[audit_rule].[audit_id]=@AuditId,
+                [dbo].[audit_rule].[created_on]=@CreatedOn,
+                [dbo].[audit_rule].[last_modified_on]=@LastModifiedOn,
                 [dbo].[audit_rule].[evidence_set_id]=@EvidenceSetId
             WHERE [dbo].[audit_rule].[audit_rule_id]=@Id ";
 
@@ -54,6 +60,8 @@ namespace ESC2.Library.Data.Repos
                    [dbo].[audit_rule].[status],
                    [dbo].[audit_rule].[rule_id],
                    [dbo].[audit_rule].[audit_id],
+                   [dbo].[audit_rule].[created_on],
+                   [dbo].[audit_rule].[last_modified_on],
                    [dbo].[audit_rule].[evidence_set_id]
             FROM [dbo].[audit_rule] ";
 
@@ -65,6 +73,8 @@ namespace ESC2.Library.Data.Repos
             obj.Status = row.GetString("status");
             obj.RuleId = row.GetGuid("rule_id");
             obj.AuditId = row.GetGuid("audit_id");
+            obj.CreatedOn = row.GetDateTime("created_on");
+            obj.LastModifiedOn = row.GetDateTime("last_modified_on");
             obj.EvidenceSetId = row.GetGuid("evidence_set_id");
             return obj;
         }
@@ -78,6 +88,8 @@ namespace ESC2.Library.Data.Repos
              parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("RuleId", obj.RuleId, DbQueryParameterType.Guid));
              parameters.Add(new DbQueryParameter("AuditId", obj.AuditId, DbQueryParameterType.Guid));
+             parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
+             parameters.Add(new DbQueryParameter("LastModifiedOn", obj.LastModifiedOn, DbQueryParameterType.DateTime));
              parameters.Add(new DbQueryParameter("EvidenceSetId", obj.EvidenceSetId, DbQueryParameterType.Guid));
 
              return parameters;

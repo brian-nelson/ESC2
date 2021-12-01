@@ -28,17 +28,20 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[evidence].[EvidenceId],
                 [dbo].[evidence].[DataLocation],
                 [dbo].[evidence].[MimeType],
+                [dbo].[evidence].[CreatedOn],
                 [dbo].[evidence].[EvidenceSetId])
             VALUES ( 
                 @Id,
                 @DataLocation,
                 @MimeType,
+                @CreatedOn,
                 @EvidenceSetId) ";
 
         public override string UpdateSql => @"
             UPDATE [dbo].[evidence] 
             SET [dbo].[evidence].[data_location]=@DataLocation,
                 [dbo].[evidence].[mime_type]=@MimeType,
+                [dbo].[evidence].[created_on]=@CreatedOn,
                 [dbo].[evidence].[evidence_set_id]=@EvidenceSetId
             WHERE [dbo].[evidence].[evidence_id]=@Id ";
 
@@ -46,6 +49,7 @@ namespace ESC2.Library.Data.Repos
             SELECT [dbo].[evidence].[evidence_id],
                    [dbo].[evidence].[data_location],
                    [dbo].[evidence].[mime_type],
+                   [dbo].[evidence].[created_on],
                    [dbo].[evidence].[evidence_set_id]
             FROM [dbo].[evidence] ";
 
@@ -55,6 +59,7 @@ namespace ESC2.Library.Data.Repos
             obj.Id = row.GetGuid("evidence_id");
             obj.DataLocation = row.GetString("data_location");
             obj.MimeType = row.GetString("mime_type");
+            obj.CreatedOn = row.GetDateTime("created_on");
             obj.EvidenceSetId = row.GetGuid("evidence_set_id");
             return obj;
         }
@@ -66,6 +71,7 @@ namespace ESC2.Library.Data.Repos
              parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
              parameters.Add(new DbQueryParameter("DataLocation", obj.DataLocation, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("MimeType", obj.MimeType, DbQueryParameterType.String));
+             parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
              parameters.Add(new DbQueryParameter("EvidenceSetId", obj.EvidenceSetId, DbQueryParameterType.Guid));
 
              return parameters;

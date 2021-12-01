@@ -22,6 +22,7 @@ namespace ESC2.Library.Data.DataObjects
         public string Severity { get; set; }
         public string Version { get; set; }
         public string Title { get; set; }
+        public string Discussion { get; set; }
         public string Fix { get; set; }
         public string Check { get; set; }
         public string Cci { get; set; }

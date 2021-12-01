@@ -19,6 +19,7 @@ namespace ESC2.Library.Data.DataObjects
         public Guid Id { get; set; }
         public string DataLocation { get; set; }
         public string MimeType { get; set; }
+        public DateTime CreatedOn { get; set; }
         public Guid EvidenceSetId { get; set; }
     }
 }

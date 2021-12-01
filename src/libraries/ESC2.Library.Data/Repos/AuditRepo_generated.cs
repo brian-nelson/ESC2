@@ -31,6 +31,8 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[audit].[Status],
                 [dbo].[audit].[Summary],
                 [dbo].[audit].[AssignedUserId],
+                [dbo].[audit].[CreatedOn],
+                [dbo].[audit].[LastModifiedOn],
                 [dbo].[audit].[AssetId],
                 [dbo].[audit].[StigId])
             VALUES ( 
@@ -40,6 +42,8 @@ namespace ESC2.Library.Data.Repos
                 @Status,
                 @Summary,
                 @AssignedUserId,
+                @CreatedOn,
+                @LastModifiedOn,
                 @AssetId,
                 @StigId) ";
 
@@ -50,6 +54,8 @@ namespace ESC2.Library.Data.Repos
                 [dbo].[audit].[status]=@Status,
                 [dbo].[audit].[summary]=@Summary,
                 [dbo].[audit].[assigned_user_id]=@AssignedUserId,
+                [dbo].[audit].[created_on]=@CreatedOn,
+                [dbo].[audit].[last_modified_on]=@LastModifiedOn,
                 [dbo].[audit].[asset_id]=@AssetId,
                 [dbo].[audit].[stig_id]=@StigId
             WHERE [dbo].[audit].[audit_id]=@Id ";
@@ -61,6 +67,8 @@ namespace ESC2.Library.Data.Repos
                    [dbo].[audit].[status],
                    [dbo].[audit].[summary],
                    [dbo].[audit].[assigned_user_id],
+                   [dbo].[audit].[created_on],
+                   [dbo].[audit].[last_modified_on],
                    [dbo].[audit].[asset_id],
                    [dbo].[audit].[stig_id]
             FROM [dbo].[audit] ";
@@ -74,6 +82,8 @@ namespace ESC2.Library.Data.Repos
             obj.Status = row.GetString("status");
             obj.Summary = row.GetString("summary");
             obj.AssignedUserId = row.GetNullableGuid("assigned_user_id");
+            obj.CreatedOn = row.GetDateTime("created_on");
+            obj.LastModifiedOn = row.GetDateTime("last_modified_on");
             obj.AssetId = row.GetGuid("asset_id");
             obj.StigId = row.GetGuid("stig_id");
             return obj;
@@ -89,6 +99,8 @@ namespace ESC2.Library.Data.Repos
              parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("Summary", obj.Summary, DbQueryParameterType.String));
              parameters.Add(new DbQueryParameter("AssignedUserId", obj.AssignedUserId, DbQueryParameterType.Guid));
+             parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
+             parameters.Add(new DbQueryParameter("LastModifiedOn", obj.LastModifiedOn, DbQueryParameterType.DateTime));
              parameters.Add(new DbQueryParameter("AssetId", obj.AssetId, DbQueryParameterType.Guid));
              parameters.Add(new DbQueryParameter("StigId", obj.StigId, DbQueryParameterType.Guid));
 

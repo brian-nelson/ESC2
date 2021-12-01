@@ -24,6 +24,8 @@ CREATE TABLE dbo.employee (
 	family_name varchar(50) NOT NULL,
 	email varchar(255) NOT NULL,
 	job_title varchar(50),
+	start_date datetime NOT NULL,
+	end_date datetime,
 	department_id uniqueidentifier NOT NULL,
 	PRIMARY KEY (employee_id));
 
@@ -75,10 +77,22 @@ CREATE TABLE dbo.[rule] (
 	severity CHAR(1) NOT NULL,
 	version VARCHAR(50) NOT NULL,
 	title VARCHAR(max) NOT NULL,
+	discussion varchar(max) NOT NULL,
 	fix VARCHAR(max) NOT NULL,
 	[check] VARCHAR(max) NOT NULL,
 	cci VARCHAR(20) NOT NULL,
 	PRIMARY KEY (rule_id));
+
+CREATE TABLE dbo.[adjustment] (
+    adjustment_id uniqueidentifier NOT NULL,
+	rule_id uniqueidentifier NOT NULL,
+	severity CHAR(1) NOT NULL,
+	title VARCHAR(max) NOT NULL,
+	discussion varchar(max) NOT NULL,
+	fix VARCHAR(max) NOT NULL,
+	[check] VARCHAR(max) NOT NULL,
+	cci VARCHAR(20) NOT NULL,
+	PRIMARY KEY (adjustment_id));
 
 CREATE TABLE dbo.implementation (
     implementation_id uniqueidentifier NOT NULL,
@@ -89,17 +103,22 @@ CREATE TABLE dbo.implementation (
 	assigned_user_id uniqueidentifier,
 	asset_id uniqueidentifier NOT NULL,
 	stig_id uniqueidentifier NOT NULL,
+	created_on datetime NOT NULL,
+	last_modified_on datetime NOT NULL,
 	PRIMARY KEY (implementation_id));
 
 CREATE TABLE dbo.implementation_rule (
 	implementation_rule_id uniqueidentifier NOT NULL,
 	rule_id uniqueidentifier NOT NULL,
 	implementation_id uniqueidentifier NOT NULL,
+	adjustment_id uniqueidentifier,
 	status VARCHAR(5) NOT NULL,
 	finding_details VARCHAR(max),
 	comments VARCHAR(max),
 	severity_override CHAR(1),
 	severity_justification VARCHAR(max),
+	created_on datetime NOT NULL,
+	last_modified_on datetime NOT NULL,
 	evidence_set_id uniqueidentifier,
 	PRIMARY KEY (implementation_rule_id));
 
@@ -110,6 +129,8 @@ CREATE TABLE dbo.audit (
 	status VARCHAR(5) NOT NULL,
 	summary VARCHAR(max),
 	assigned_user_id uniqueidentifier,
+	created_on datetime NOT NULL,
+	last_modified_on datetime NOT NULL,
 	asset_id uniqueidentifier NOT NULL,
 	stig_id uniqueidentifier NOT NULL,
 	PRIMARY KEY (audit_id));
@@ -120,6 +141,8 @@ CREATE TABLE dbo.audit_rule (
 	status VARCHAR(5) NOT NULL,
 	rule_id uniqueidentifier NOT NULL,
 	audit_id uniqueidentifier NOT NULL,
+	created_on datetime NOT NULL,
+	last_modified_on datetime NOT NULL,
 	evidence_set_id uniqueidentifier NOT NULL,
 	PRIMARY KEY (audit_rule_id));
 
@@ -132,6 +155,7 @@ CREATE TABLE dbo.evidence (
 	evidence_id uniqueidentifier NOT NULL,
 	data_location varchar(500) NOT NULL,
 	mime_type varchar(50) NOT NULL,
+	created_on datetime NOT NULL,
 	evidence_set_id uniqueidentifier NOT NULL,
 	PRIMARY KEY (evidence_id));
 
@@ -152,7 +176,10 @@ ALTER TABLE dbo.version
     ADD CONSTRAINT ak_version_stig_number UNIQUE (stig_id, number);
 
 ALTER TABLE dbo.[rule]
-    ADD CONSTRAINT AK_RULE_VERSION_RULENUM UNIQUE (version_id, number);
+    ADD CONSTRAINT ak_rule_version_rulenum UNIQUE (version_id, number);
+
+ALTER TABLE dbo.[adjustment]
+	ADD CONSTRAINT ak_adjustment_rule_id UNIQUE (rule_id);
 
 ALTER TABLE dbo.implementation_rule
     ADD CONSTRAINT ak_implementation_rule_id_rule UNIQUE (implementation_id, rule_id);
@@ -241,7 +268,6 @@ ALTER TABLE dbo.implementation
 	ADD CONSTRAINT fk_implementation_user FOREIGN KEY (assigned_user_id)
 	REFERENCES dbo.[user] ([user_id]);
 
-
 ALTER TABLE dbo.audit
 	ADD CONSTRAINT fk_audit_asset FOREIGN KEY (asset_id)
 	REFERENCES dbo.asset (asset_id);
@@ -258,9 +284,13 @@ ALTER TABLE dbo.version
     ADD CONSTRAINT fk_version_stig FOREIGN KEY (stig_id)
 	REFERENCES dbo.stig (stig_id);
 
-ALTER TABLE dbo.[RULE]
+ALTER TABLE dbo.[rule]
     ADD CONSTRAINT fk_rule_version FOREIGN KEY (version_id)
 	REFERENCES dbo.version (version_id);
+
+ALTER TABLE dbo.adjustment
+    ADD CONSTRAINT fk_adjustment_rule FOREIGN KEY (rule_id)
+	REFERENCES dbo.[rule] (rule_id);
 
 ALTER TABLE dbo.implementation_rule
     ADD CONSTRAINT fk_implementation_rule_rule FOREIGN KEY (rule_id)
@@ -273,6 +303,10 @@ ALTER TABLE dbo.implementation_rule
 ALTER TABLE dbo.implementation_rule
     ADD CONSTRAINT fk_implementation_rule_evidence_set FOREIGN KEY (evidence_set_id)
 	REFERENCES dbo.evidence_set (evidence_set_id);
+
+ALTER TABLE dbo.implementation_rule
+    ADD CONSTRAINT fk_implementation_rule_adjustment FOREIGN KEY (adjustment_id)
+	REFERENCES dbo.adjustment (adjustment_id);
 
 ALTER TABLE dbo.audit_rule
     ADD CONSTRAINT fk_audit_rule_rule FOREIGN KEY (rule_id)
@@ -289,7 +323,4 @@ ALTER TABLE dbo.audit_rule
 ALTER TABLE dbo.evidence
     ADD CONSTRAINT fk_evidence_evidence_set FOREIGN KEY (evidence_set_id)
 	REFERENCES dbo.evidence_set (evidence_set_id);
-
-
-
 

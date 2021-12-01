@@ -21,6 +21,8 @@ namespace ESC2.Library.Data.DataObjects
         public string Status { get; set; }
         public Guid RuleId { get; set; }
         public Guid AuditId { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime LastModifiedOn { get; set; }
         public Guid EvidenceSetId { get; set; }
     }
 }
