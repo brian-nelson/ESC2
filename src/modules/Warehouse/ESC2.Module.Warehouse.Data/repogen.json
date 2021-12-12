@@ -1,0 +1,91 @@
+{
+  "UseSchemas": false,
+  "ProjectFolder": "libraries\\ESC2.Library.Warehouse.Data",
+  "BaseNamespace": "ESC2.Library.Warehouse.Data",
+  "Tables": [
+    {
+      "Schema": "dbo",
+      "Name": "asset"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "asset_group"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "asset_history"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "asset_type"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "audit"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "audit_detail"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "audit_fact"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "employee"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "implementation"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "implementation_detail"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "implementation_fact"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "implementation_guide"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "period"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "resource_cost_fact"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "role"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "rule"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "system_event"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "system_event_facility"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "system_event_fact"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "system_event_property"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "system_event_severity"
+    }
+  ]
+}

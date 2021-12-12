@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\libraries\ESC2.Library.Stig\ESC2.Library.Stig.csproj" />
+    <ProjectReference Include="..\ESC2.Module.System.Data\ESC2.Module.System.Data.csproj" />
+  </ItemGroup>
+
+</Project>

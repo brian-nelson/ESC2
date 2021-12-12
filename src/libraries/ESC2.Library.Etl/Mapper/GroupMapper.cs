@@ -5,9 +5,9 @@ namespace ESC2.Library.Etl.Mapper
 {
     public static class GroupMapper
     {
-        public static List<Data.DataObjects.Rule> ToListDataRules(List<Group> groups)
+        public static List<ESC2.Module.System.Data.DataObjects.Rule> ToListDataRules(List<Group> groups)
         {
-            var output = new List<Data.DataObjects.Rule>();
+            var output = new List<ESC2.Module.System.Data.DataObjects.Rule>();
 
             foreach (var group in groups)
             {

@@ -1,0 +1,15 @@
+{
+  "UseSchemas": false,
+  "ProjectFolder": "libraries\\ESC2.Library.SysLog.Data",
+  "BaseNamespace": "ESC2.Library.SysLog.Data",
+  "Tables": [
+    {
+      "Schema": "dbo",
+      "Name": "system_event"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "system_event_property"
+    }
+  ]
+}

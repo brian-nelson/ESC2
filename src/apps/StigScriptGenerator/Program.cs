@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using ESC2.Library.Data.Scripts.Convertor;
-using ESC2.Library.Data.Scripts.Generators;
+// using ESC2.Library.Data.Scripts.Convertor;
+// using ESC2.Library.Data.Scripts.Generators;
 using ESC2.Library.Stig.Readers;
 
 namespace StigScriptGenerator
@@ -52,9 +52,9 @@ namespace StigScriptGenerator
             //     @"C:\Data\Stigs\Sql\windows_server_2019.sql");
 
             //iOS 12
-            StigToSql.Convert(
-                "../../../../../../Samples/U_Apple_iOS_12_STIG_V1R2_Manual-xccdf.xml",
-                @"C:\Data\Stigs\Sql\iOS_12.sql");
+            // StigToSql.Convert(
+            //     "../../../../../../Samples/U_Apple_iOS_12_STIG_V1R2_Manual-xccdf.xml",
+            //     @"C:\Data\Stigs\Sql\iOS_12.sql");
 
         }
     }

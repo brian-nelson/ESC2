@@ -1,0 +1,83 @@
+{
+  "UseSchemas": false,
+  "BuildShared": true,
+  "ProjectFolder": "",
+  "ProjectBaseNamespace": "ESC2.Module.System.Data",
+  "SharedProjectFolder": "..\\..\\..\\Libraries\\ESC2.Library.Data",
+  "SharedProjectBaseNamespace": "ESC2.Library.Data",
+  "Tables": [
+    {
+      "Schema": "dbo",
+      "Name": "adjustment"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "adjustment_set"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "asset_group"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "asset_type"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "asset"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "asset_history"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "audit"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "audit_rule"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "department"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "employee"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "evidence"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "evidence_set"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "implementation"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "implementation_rule"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "implementation_guide"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "rule"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "user"
+    },
+    {
+      "Schema": "dbo",
+      "Name": "version"
+    }
+
+  ]
+}

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\modules\System\ESC2.Module.System.Data\ESC2.Module.System.Data.csproj" />
     <ProjectReference Include="..\ESC2.Library.Data\ESC2.Library.Data.csproj" />
     <ProjectReference Include="..\ESC2.Library.Stig\ESC2.Library.Stig.csproj" />
   </ItemGroup>

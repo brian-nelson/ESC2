@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Objects\" />
+    <ProjectReference Include="..\..\..\libraries\ESC2.Library.Data\ESC2.Library.Data.csproj" />
   </ItemGroup>
 
 </Project>
