@@ -89,24 +89,21 @@ namespace ESC2.Module.System.Data.Repos
             return obj;
         }
 
-
         public override List<DbQueryParameter> ToParameters(ESC2.Module.System.Data.DataObjects.Version obj)
-         {
-             List<DbQueryParameter> parameters = new List<DbQueryParameter>();
-             parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("Number", obj.Number, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("StatusDate", obj.StatusDate, DbQueryParameterType.DateTime));
-             parameters.Add(new DbQueryParameter("Title", obj.Title, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("Description", obj.Description, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("Publisher", obj.Publisher, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("Source", obj.Source, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("Filename", obj.Filename, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("ImplementationGuideId", obj.ImplementationGuideId, DbQueryParameterType.Guid));
+        {
+            List<DbQueryParameter> parameters = new List<DbQueryParameter>();
+            parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("Number", obj.Number, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("StatusDate", obj.StatusDate, DbQueryParameterType.DateTime));
+            parameters.Add(new DbQueryParameter("Title", obj.Title, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Description", obj.Description, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Publisher", obj.Publisher, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Source", obj.Source, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Filename", obj.Filename, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("ImplementationGuideId", obj.ImplementationGuideId, DbQueryParameterType.Guid));
 
-             return parameters;
-         }
-
-
+            return parameters;
+        }
     }
 }

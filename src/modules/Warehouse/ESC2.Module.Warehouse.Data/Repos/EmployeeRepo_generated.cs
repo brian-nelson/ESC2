@@ -26,56 +26,36 @@ namespace ESC2.Module.System.Data.Repos
         public override string InsertSql => @"
             INSERT INTO [dbo].[employee] (
                 [dbo].[employee].[EmployeeId],
+                [dbo].[employee].[RoleId],
                 [dbo].[employee].[GivenName],
-                [dbo].[employee].[FamilyName],
-                [dbo].[employee].[Email],
-                [dbo].[employee].[JobTitle],
-                [dbo].[employee].[StartDate],
-                [dbo].[employee].[EndDate],
-                [dbo].[employee].[DepartmentId])
+                [dbo].[employee].[FamilyName])
             VALUES ( 
                 @Id,
+                @RoleId,
                 @GivenName,
-                @FamilyName,
-                @Email,
-                @JobTitle,
-                @StartDate,
-                @EndDate,
-                @DepartmentId) ";
+                @FamilyName) ";
 
         public override string UpdateSql => @"
             UPDATE [dbo].[employee] 
-            SET [dbo].[employee].[given_name]=@GivenName,
-                [dbo].[employee].[family_name]=@FamilyName,
-                [dbo].[employee].[email]=@Email,
-                [dbo].[employee].[job_title]=@JobTitle,
-                [dbo].[employee].[start_date]=@StartDate,
-                [dbo].[employee].[end_date]=@EndDate,
-                [dbo].[employee].[department_id]=@DepartmentId
+            SET [dbo].[employee].[role_id]=@RoleId,
+                [dbo].[employee].[given_name]=@GivenName,
+                [dbo].[employee].[family_name]=@FamilyName
             WHERE [dbo].[employee].[employee_id]=@Id ";
 
         public override string SelectSql => @"
             SELECT [dbo].[employee].[employee_id],
+                   [dbo].[employee].[role_id],
                    [dbo].[employee].[given_name],
-                   [dbo].[employee].[family_name],
-                   [dbo].[employee].[email],
-                   [dbo].[employee].[job_title],
-                   [dbo].[employee].[start_date],
-                   [dbo].[employee].[end_date],
-                   [dbo].[employee].[department_id]
+                   [dbo].[employee].[family_name]
             FROM [dbo].[employee] ";
 
         public override ESC2.Module.System.Data.DataObjects.Employee ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Employee();
             obj.Id = row.GetGuid("employee_id");
+            obj.RoleId = row.GetGuid("role_id");
             obj.GivenName = row.GetString("given_name");
             obj.FamilyName = row.GetString("family_name");
-            obj.Email = row.GetString("email");
-            obj.JobTitle = row.GetString("job_title");
-            obj.StartDate = row.GetDateTime("start_date");
-            obj.EndDate = row.GetNullableDateTime("end_date");
-            obj.DepartmentId = row.GetGuid("department_id");
             return obj;
         }
 
@@ -83,13 +63,9 @@ namespace ESC2.Module.System.Data.Repos
         {
             List<DbQueryParameter> parameters = new List<DbQueryParameter>();
             parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("RoleId", obj.RoleId, DbQueryParameterType.Guid));
             parameters.Add(new DbQueryParameter("GivenName", obj.GivenName, DbQueryParameterType.String));
             parameters.Add(new DbQueryParameter("FamilyName", obj.FamilyName, DbQueryParameterType.String));
-            parameters.Add(new DbQueryParameter("Email", obj.Email, DbQueryParameterType.String));
-            parameters.Add(new DbQueryParameter("JobTitle", obj.JobTitle, DbQueryParameterType.String));
-            parameters.Add(new DbQueryParameter("StartDate", obj.StartDate, DbQueryParameterType.DateTime));
-            parameters.Add(new DbQueryParameter("EndDate", obj.EndDate, DbQueryParameterType.DateTime));
-            parameters.Add(new DbQueryParameter("DepartmentId", obj.DepartmentId, DbQueryParameterType.Guid));
 
             return parameters;
         }

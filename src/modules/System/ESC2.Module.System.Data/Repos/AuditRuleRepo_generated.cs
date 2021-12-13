@@ -79,22 +79,19 @@ namespace ESC2.Module.System.Data.Repos
             return obj;
         }
 
-
         public override List<DbQueryParameter> ToParameters(ESC2.Module.System.Data.DataObjects.AuditRule obj)
-         {
-             List<DbQueryParameter> parameters = new List<DbQueryParameter>();
-             parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("Comment", obj.Comment, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
-             parameters.Add(new DbQueryParameter("LastModifiedOn", obj.LastModifiedOn, DbQueryParameterType.DateTime));
-             parameters.Add(new DbQueryParameter("RuleId", obj.RuleId, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("EvidenceSetId", obj.EvidenceSetId, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("AuditId", obj.AuditId, DbQueryParameterType.Guid));
+        {
+            List<DbQueryParameter> parameters = new List<DbQueryParameter>();
+            parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("Comment", obj.Comment, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
+            parameters.Add(new DbQueryParameter("LastModifiedOn", obj.LastModifiedOn, DbQueryParameterType.DateTime));
+            parameters.Add(new DbQueryParameter("RuleId", obj.RuleId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("EvidenceSetId", obj.EvidenceSetId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("AuditId", obj.AuditId, DbQueryParameterType.Guid));
 
-             return parameters;
-         }
-
-
+            return parameters;
+        }
     }
 }

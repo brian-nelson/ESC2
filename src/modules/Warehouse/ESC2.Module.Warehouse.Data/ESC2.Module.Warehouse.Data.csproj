@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\libraries\ESC2.Library.Data\ESC2.Library.Data.csproj" />
+  </ItemGroup>
+
 </Project>

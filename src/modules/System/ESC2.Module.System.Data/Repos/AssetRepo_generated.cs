@@ -84,23 +84,20 @@ namespace ESC2.Module.System.Data.Repos
             return obj;
         }
 
-
         public override List<DbQueryParameter> ToParameters(ESC2.Module.System.Data.DataObjects.Asset obj)
-         {
-             List<DbQueryParameter> parameters = new List<DbQueryParameter>();
-             parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("Name", obj.Name, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("Description", obj.Description, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("HostName", obj.HostName, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("ContactEmployeeId", obj.ContactEmployeeId, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("OwningDepartmentId", obj.OwningDepartmentId, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("ParentAssetId", obj.ParentAssetId, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("AssetTypeId", obj.AssetTypeId, DbQueryParameterType.Guid));
+        {
+            List<DbQueryParameter> parameters = new List<DbQueryParameter>();
+            parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("Name", obj.Name, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Description", obj.Description, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("HostName", obj.HostName, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("ContactEmployeeId", obj.ContactEmployeeId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("OwningDepartmentId", obj.OwningDepartmentId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("ParentAssetId", obj.ParentAssetId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("AssetTypeId", obj.AssetTypeId, DbQueryParameterType.Guid));
 
-             return parameters;
-         }
-
-
+            return parameters;
+        }
     }
 }

@@ -30,22 +30,16 @@ namespace ESC2.Module.System.Data.Repos
                 [dbo].[implementation].[EndDate],
                 [dbo].[implementation].[Status],
                 [dbo].[implementation].[Summary],
-                [dbo].[implementation].[AssignedUserId],
-                [dbo].[implementation].[AssetId],
-                [dbo].[implementation].[ImplementationGuideId],
-                [dbo].[implementation].[CreatedOn],
-                [dbo].[implementation].[LastModifiedOn])
+                [dbo].[implementation].[EmployeeId],
+                [dbo].[implementation].[AssetId])
             VALUES ( 
                 @Id,
                 @StartDate,
                 @EndDate,
                 @Status,
                 @Summary,
-                @AssignedUserId,
-                @AssetId,
-                @ImplementationGuideId,
-                @CreatedOn,
-                @LastModifiedOn) ";
+                @EmployeeId,
+                @AssetId) ";
 
         public override string UpdateSql => @"
             UPDATE [dbo].[implementation] 
@@ -53,11 +47,8 @@ namespace ESC2.Module.System.Data.Repos
                 [dbo].[implementation].[end_date]=@EndDate,
                 [dbo].[implementation].[status]=@Status,
                 [dbo].[implementation].[summary]=@Summary,
-                [dbo].[implementation].[assigned_user_id]=@AssignedUserId,
-                [dbo].[implementation].[asset_id]=@AssetId,
-                [dbo].[implementation].[implementation_guide_id]=@ImplementationGuideId,
-                [dbo].[implementation].[created_on]=@CreatedOn,
-                [dbo].[implementation].[last_modified_on]=@LastModifiedOn
+                [dbo].[implementation].[employee_id]=@EmployeeId,
+                [dbo].[implementation].[asset_id]=@AssetId
             WHERE [dbo].[implementation].[implementation_id]=@Id ";
 
         public override string SelectSql => @"
@@ -66,11 +57,8 @@ namespace ESC2.Module.System.Data.Repos
                    [dbo].[implementation].[end_date],
                    [dbo].[implementation].[status],
                    [dbo].[implementation].[summary],
-                   [dbo].[implementation].[assigned_user_id],
-                   [dbo].[implementation].[asset_id],
-                   [dbo].[implementation].[implementation_guide_id],
-                   [dbo].[implementation].[created_on],
-                   [dbo].[implementation].[last_modified_on]
+                   [dbo].[implementation].[employee_id],
+                   [dbo].[implementation].[asset_id]
             FROM [dbo].[implementation] ";
 
         public override ESC2.Module.System.Data.DataObjects.Implementation ToObject(DataRow row)
@@ -81,11 +69,8 @@ namespace ESC2.Module.System.Data.Repos
             obj.EndDate = row.GetNullableDateTime("end_date");
             obj.Status = row.GetString("status");
             obj.Summary = row.GetString("summary");
-            obj.AssignedUserId = row.GetNullableGuid("assigned_user_id");
+            obj.EmployeeId = row.GetNullableGuid("employee_id");
             obj.AssetId = row.GetGuid("asset_id");
-            obj.ImplementationGuideId = row.GetGuid("implementation_guide_id");
-            obj.CreatedOn = row.GetDateTime("created_on");
-            obj.LastModifiedOn = row.GetDateTime("last_modified_on");
             return obj;
         }
 
@@ -97,11 +82,8 @@ namespace ESC2.Module.System.Data.Repos
             parameters.Add(new DbQueryParameter("EndDate", obj.EndDate, DbQueryParameterType.DateTime));
             parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
             parameters.Add(new DbQueryParameter("Summary", obj.Summary, DbQueryParameterType.String));
-            parameters.Add(new DbQueryParameter("AssignedUserId", obj.AssignedUserId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("EmployeeId", obj.EmployeeId, DbQueryParameterType.Guid));
             parameters.Add(new DbQueryParameter("AssetId", obj.AssetId, DbQueryParameterType.Guid));
-            parameters.Add(new DbQueryParameter("ImplementationGuideId", obj.ImplementationGuideId, DbQueryParameterType.Guid));
-            parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
-            parameters.Add(new DbQueryParameter("LastModifiedOn", obj.LastModifiedOn, DbQueryParameterType.DateTime));
 
             return parameters;
         }

@@ -99,26 +99,23 @@ namespace ESC2.Module.System.Data.Repos
             return obj;
         }
 
-
         public override List<DbQueryParameter> ToParameters(ESC2.Module.System.Data.DataObjects.ImplementationRule obj)
-         {
-             List<DbQueryParameter> parameters = new List<DbQueryParameter>();
-             parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("FindingDetails", obj.FindingDetails, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("Comments", obj.Comments, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("SeverityOverride", obj.SeverityOverride, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("SeverityJustification", obj.SeverityJustification, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
-             parameters.Add(new DbQueryParameter("LastModifiedOn", obj.LastModifiedOn, DbQueryParameterType.DateTime));
-             parameters.Add(new DbQueryParameter("AdjustmentSetId", obj.AdjustmentSetId, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("RuleId", obj.RuleId, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("EvidenceSetId", obj.EvidenceSetId, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("ImplementationId", obj.ImplementationId, DbQueryParameterType.Guid));
+        {
+            List<DbQueryParameter> parameters = new List<DbQueryParameter>();
+            parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("FindingDetails", obj.FindingDetails, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Comments", obj.Comments, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("SeverityOverride", obj.SeverityOverride, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("SeverityJustification", obj.SeverityJustification, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
+            parameters.Add(new DbQueryParameter("LastModifiedOn", obj.LastModifiedOn, DbQueryParameterType.DateTime));
+            parameters.Add(new DbQueryParameter("AdjustmentSetId", obj.AdjustmentSetId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("RuleId", obj.RuleId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("EvidenceSetId", obj.EvidenceSetId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("ImplementationId", obj.ImplementationId, DbQueryParameterType.Guid));
 
-             return parameters;
-         }
-
-
+            return parameters;
+        }
     }
 }

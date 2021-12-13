@@ -34,7 +34,7 @@ namespace ESC2.Module.System.Data.Repos
                 [dbo].[rule].[Fix],
                 [dbo].[rule].[Check],
                 [dbo].[rule].[Cci],
-                [dbo].[rule].[VersionId])
+                [dbo].[rule].[ImplementationGuideId])
             VALUES ( 
                 @Id,
                 @Number,
@@ -45,7 +45,7 @@ namespace ESC2.Module.System.Data.Repos
                 @Fix,
                 @Check,
                 @Cci,
-                @VersionId) ";
+                @ImplementationGuideId) ";
 
         public override string UpdateSql => @"
             UPDATE [dbo].[rule] 
@@ -57,7 +57,7 @@ namespace ESC2.Module.System.Data.Repos
                 [dbo].[rule].[fix]=@Fix,
                 [dbo].[rule].[check]=@Check,
                 [dbo].[rule].[cci]=@Cci,
-                [dbo].[rule].[version_id]=@VersionId
+                [dbo].[rule].[implementation_guide_id]=@ImplementationGuideId
             WHERE [dbo].[rule].[rule_id]=@Id ";
 
         public override string SelectSql => @"
@@ -70,7 +70,7 @@ namespace ESC2.Module.System.Data.Repos
                    [dbo].[rule].[fix],
                    [dbo].[rule].[check],
                    [dbo].[rule].[cci],
-                   [dbo].[rule].[version_id]
+                   [dbo].[rule].[implementation_guide_id]
             FROM [dbo].[rule] ";
 
         public override ESC2.Module.System.Data.DataObjects.Rule ToObject(DataRow row)
@@ -85,7 +85,7 @@ namespace ESC2.Module.System.Data.Repos
             obj.Fix = row.GetString("fix");
             obj.Check = row.GetString("check");
             obj.Cci = row.GetString("cci");
-            obj.VersionId = row.GetGuid("version_id");
+            obj.ImplementationGuideId = row.GetGuid("implementation_guide_id");
             return obj;
         }
 
@@ -101,7 +101,7 @@ namespace ESC2.Module.System.Data.Repos
             parameters.Add(new DbQueryParameter("Fix", obj.Fix, DbQueryParameterType.String));
             parameters.Add(new DbQueryParameter("Check", obj.Check, DbQueryParameterType.String));
             parameters.Add(new DbQueryParameter("Cci", obj.Cci, DbQueryParameterType.String));
-            parameters.Add(new DbQueryParameter("VersionId", obj.VersionId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("ImplementationGuideId", obj.ImplementationGuideId, DbQueryParameterType.Guid));
 
             return parameters;
         }

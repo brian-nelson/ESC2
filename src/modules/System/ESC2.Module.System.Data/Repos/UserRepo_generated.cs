@@ -69,20 +69,17 @@ namespace ESC2.Module.System.Data.Repos
             return obj;
         }
 
-
         public override List<DbQueryParameter> ToParameters(ESC2.Module.System.Data.DataObjects.User obj)
-         {
-             List<DbQueryParameter> parameters = new List<DbQueryParameter>();
-             parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("Role", obj.Role, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("IsEnabled", obj.IsEnabled, DbQueryParameterType.Boolean));
-             parameters.Add(new DbQueryParameter("PasswordHash", obj.PasswordHash, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("PasswordSalt", obj.PasswordSalt, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("EmployeeId", obj.EmployeeId, DbQueryParameterType.Guid));
+        {
+            List<DbQueryParameter> parameters = new List<DbQueryParameter>();
+            parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("Role", obj.Role, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("IsEnabled", obj.IsEnabled, DbQueryParameterType.Boolean));
+            parameters.Add(new DbQueryParameter("PasswordHash", obj.PasswordHash, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("PasswordSalt", obj.PasswordSalt, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("EmployeeId", obj.EmployeeId, DbQueryParameterType.Guid));
 
-             return parameters;
-         }
-
-
+            return parameters;
+        }
     }
 }

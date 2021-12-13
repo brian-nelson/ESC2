@@ -26,41 +26,36 @@ namespace ESC2.Module.System.Data.Repos
         public override string InsertSql => @"
             INSERT INTO [dbo].[asset_history] (
                 [dbo].[asset_history].[AssetHistoryId],
-                [dbo].[asset_history].[ActionDate],
-                [dbo].[asset_history].[Action],
-                [dbo].[asset_history].[UserId],
-                [dbo].[asset_history].[AssetId])
+                [dbo].[asset_history].[AssetId],
+                [dbo].[asset_history].[PeriodId],
+                [dbo].[asset_history].[Action])
             VALUES ( 
                 @Id,
-                @ActionDate,
-                @Action,
-                @UserId,
-                @AssetId) ";
+                @AssetId,
+                @PeriodId,
+                @Action) ";
 
         public override string UpdateSql => @"
             UPDATE [dbo].[asset_history] 
-            SET [dbo].[asset_history].[action_date]=@ActionDate,
-                [dbo].[asset_history].[action]=@Action,
-                [dbo].[asset_history].[user_id]=@UserId,
-                [dbo].[asset_history].[asset_id]=@AssetId
+            SET [dbo].[asset_history].[asset_id]=@AssetId,
+                [dbo].[asset_history].[period_id]=@PeriodId,
+                [dbo].[asset_history].[action]=@Action
             WHERE [dbo].[asset_history].[asset_history_id]=@Id ";
 
         public override string SelectSql => @"
             SELECT [dbo].[asset_history].[asset_history_id],
-                   [dbo].[asset_history].[action_date],
-                   [dbo].[asset_history].[action],
-                   [dbo].[asset_history].[user_id],
-                   [dbo].[asset_history].[asset_id]
+                   [dbo].[asset_history].[asset_id],
+                   [dbo].[asset_history].[period_id],
+                   [dbo].[asset_history].[action]
             FROM [dbo].[asset_history] ";
 
         public override ESC2.Module.System.Data.DataObjects.AssetHistory ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.AssetHistory();
             obj.Id = row.GetGuid("asset_history_id");
-            obj.ActionDate = row.GetDateTime("action_date");
-            obj.Action = row.GetString("action");
-            obj.UserId = row.GetGuid("user_id");
             obj.AssetId = row.GetGuid("asset_id");
+            obj.PeriodId = row.GetLong("period_id");
+            obj.Action = row.GetString("action");
             return obj;
         }
 
@@ -68,10 +63,9 @@ namespace ESC2.Module.System.Data.Repos
         {
             List<DbQueryParameter> parameters = new List<DbQueryParameter>();
             parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
-            parameters.Add(new DbQueryParameter("ActionDate", obj.ActionDate, DbQueryParameterType.DateTime));
-            parameters.Add(new DbQueryParameter("Action", obj.Action, DbQueryParameterType.String));
-            parameters.Add(new DbQueryParameter("UserId", obj.UserId, DbQueryParameterType.Guid));
             parameters.Add(new DbQueryParameter("AssetId", obj.AssetId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("PeriodId", obj.PeriodId, DbQueryParameterType.Int64));
+            parameters.Add(new DbQueryParameter("Action", obj.Action, DbQueryParameterType.String));
 
             return parameters;
         }

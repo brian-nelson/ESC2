@@ -30,9 +30,7 @@ namespace ESC2.Module.System.Data.Repos
                 [dbo].[audit].[EndDate],
                 [dbo].[audit].[Status],
                 [dbo].[audit].[Summary],
-                [dbo].[audit].[CreatedOn],
-                [dbo].[audit].[LastModifiedOn],
-                [dbo].[audit].[AssignedUserId],
+                [dbo].[audit].[EmployeeId],
                 [dbo].[audit].[ImplementationId])
             VALUES ( 
                 @Id,
@@ -40,9 +38,7 @@ namespace ESC2.Module.System.Data.Repos
                 @EndDate,
                 @Status,
                 @Summary,
-                @CreatedOn,
-                @LastModifiedOn,
-                @AssignedUserId,
+                @EmployeeId,
                 @ImplementationId) ";
 
         public override string UpdateSql => @"
@@ -51,9 +47,7 @@ namespace ESC2.Module.System.Data.Repos
                 [dbo].[audit].[end_date]=@EndDate,
                 [dbo].[audit].[status]=@Status,
                 [dbo].[audit].[summary]=@Summary,
-                [dbo].[audit].[created_on]=@CreatedOn,
-                [dbo].[audit].[last_modified_on]=@LastModifiedOn,
-                [dbo].[audit].[assigned_user_id]=@AssignedUserId,
+                [dbo].[audit].[employee_id]=@EmployeeId,
                 [dbo].[audit].[implementation_id]=@ImplementationId
             WHERE [dbo].[audit].[audit_id]=@Id ";
 
@@ -63,9 +57,7 @@ namespace ESC2.Module.System.Data.Repos
                    [dbo].[audit].[end_date],
                    [dbo].[audit].[status],
                    [dbo].[audit].[summary],
-                   [dbo].[audit].[created_on],
-                   [dbo].[audit].[last_modified_on],
-                   [dbo].[audit].[assigned_user_id],
+                   [dbo].[audit].[employee_id],
                    [dbo].[audit].[implementation_id]
             FROM [dbo].[audit] ";
 
@@ -77,10 +69,8 @@ namespace ESC2.Module.System.Data.Repos
             obj.EndDate = row.GetNullableDateTime("end_date");
             obj.Status = row.GetString("status");
             obj.Summary = row.GetString("summary");
-            obj.CreatedOn = row.GetDateTime("created_on");
-            obj.LastModifiedOn = row.GetDateTime("last_modified_on");
-            obj.AssignedUserId = row.GetNullableGuid("assigned_user_id");
-            obj.ImplementationId = row.GetGuid("implementation_id");
+            obj.EmployeeId = row.GetNullableGuid("employee_id");
+            obj.ImplementationId = row.GetNullableGuid("implementation_id");
             return obj;
         }
 
@@ -92,9 +82,7 @@ namespace ESC2.Module.System.Data.Repos
             parameters.Add(new DbQueryParameter("EndDate", obj.EndDate, DbQueryParameterType.DateTime));
             parameters.Add(new DbQueryParameter("Status", obj.Status, DbQueryParameterType.String));
             parameters.Add(new DbQueryParameter("Summary", obj.Summary, DbQueryParameterType.String));
-            parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
-            parameters.Add(new DbQueryParameter("LastModifiedOn", obj.LastModifiedOn, DbQueryParameterType.DateTime));
-            parameters.Add(new DbQueryParameter("AssignedUserId", obj.AssignedUserId, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("EmployeeId", obj.EmployeeId, DbQueryParameterType.Guid));
             parameters.Add(new DbQueryParameter("ImplementationId", obj.ImplementationId, DbQueryParameterType.Guid));
 
             return parameters;

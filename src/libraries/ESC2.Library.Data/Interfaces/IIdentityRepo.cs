@@ -7,8 +7,7 @@ namespace ESC2.Library.Data.Interfaces
 {
     public interface IIdentityRepo<T> where T:IIdentityObject
     {
-        long Insert(T obj);
-        void Update(T obj);
+        long Save(T obj);
         T GetById(long id);
         void Delete(long id);
     }

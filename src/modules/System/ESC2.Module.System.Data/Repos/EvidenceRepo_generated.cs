@@ -64,19 +64,16 @@ namespace ESC2.Module.System.Data.Repos
             return obj;
         }
 
-
         public override List<DbQueryParameter> ToParameters(ESC2.Module.System.Data.DataObjects.Evidence obj)
-         {
-             List<DbQueryParameter> parameters = new List<DbQueryParameter>();
-             parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("DataLocation", obj.DataLocation, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("MimeType", obj.MimeType, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
-             parameters.Add(new DbQueryParameter("EvidenceSetId", obj.EvidenceSetId, DbQueryParameterType.Guid));
+        {
+            List<DbQueryParameter> parameters = new List<DbQueryParameter>();
+            parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("DataLocation", obj.DataLocation, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("MimeType", obj.MimeType, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("CreatedOn", obj.CreatedOn, DbQueryParameterType.DateTime));
+            parameters.Add(new DbQueryParameter("EvidenceSetId", obj.EvidenceSetId, DbQueryParameterType.Guid));
 
-             return parameters;
-         }
-
-
+            return parameters;
+        }
     }
 }

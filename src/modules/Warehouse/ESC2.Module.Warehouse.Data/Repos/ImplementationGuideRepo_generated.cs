@@ -26,31 +26,41 @@ namespace ESC2.Module.System.Data.Repos
         public override string InsertSql => @"
             INSERT INTO [dbo].[implementation_guide] (
                 [dbo].[implementation_guide].[ImplementationGuideId],
+                [dbo].[implementation_guide].[Name],
                 [dbo].[implementation_guide].[Number],
-                [dbo].[implementation_guide].[Type])
+                [dbo].[implementation_guide].[Version],
+                [dbo].[implementation_guide].[NumberOfRules])
             VALUES ( 
                 @Id,
+                @Name,
                 @Number,
-                @Type) ";
+                @Version,
+                @NumberOfRules) ";
 
         public override string UpdateSql => @"
             UPDATE [dbo].[implementation_guide] 
-            SET [dbo].[implementation_guide].[number]=@Number,
-                [dbo].[implementation_guide].[type]=@Type
+            SET [dbo].[implementation_guide].[name]=@Name,
+                [dbo].[implementation_guide].[number]=@Number,
+                [dbo].[implementation_guide].[version]=@Version,
+                [dbo].[implementation_guide].[number_of_rules]=@NumberOfRules
             WHERE [dbo].[implementation_guide].[implementation_guide_id]=@Id ";
 
         public override string SelectSql => @"
             SELECT [dbo].[implementation_guide].[implementation_guide_id],
+                   [dbo].[implementation_guide].[name],
                    [dbo].[implementation_guide].[number],
-                   [dbo].[implementation_guide].[type]
+                   [dbo].[implementation_guide].[version],
+                   [dbo].[implementation_guide].[number_of_rules]
             FROM [dbo].[implementation_guide] ";
 
         public override ESC2.Module.System.Data.DataObjects.ImplementationGuide ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.ImplementationGuide();
             obj.Id = row.GetGuid("implementation_guide_id");
+            obj.Name = row.GetString("name");
             obj.Number = row.GetString("number");
-            obj.Type = row.GetString("type");
+            obj.Version = row.GetString("version");
+            obj.NumberOfRules = row.GetInt("number_of_rules");
             return obj;
         }
 
@@ -58,8 +68,10 @@ namespace ESC2.Module.System.Data.Repos
         {
             List<DbQueryParameter> parameters = new List<DbQueryParameter>();
             parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("Name", obj.Name, DbQueryParameterType.String));
             parameters.Add(new DbQueryParameter("Number", obj.Number, DbQueryParameterType.String));
-            parameters.Add(new DbQueryParameter("Type", obj.Type, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Version", obj.Version, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("NumberOfRules", obj.NumberOfRules, DbQueryParameterType.Int32));
 
             return parameters;
         }

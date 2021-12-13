@@ -110,7 +110,29 @@ CREATE TABLE dbo.[implementation_detail] (
 --ODS for System Events
 CREATE TABLE dbo.[system_event] (
     [system_event_id] bigint NOT NULL,
-
+	[customer_id] bigint,
+	[received_at] datetime,
+	[device_reported_time] datetime,
+	[facility] smallint,
+	[priority] smallint,
+	[from_host] varchar(60),
+	[message] varchar(max),
+	[nt_severity] int,
+	[importance] int,
+	[event_source] varchar(60),
+	[event_user] varchar(60),
+	[event_category] int,
+	[event_id] int,
+	[event_binary_data] varchar(max),
+	[maximum_available] int,
+	[current_usage] int,
+	[minimum_usage] int,
+	[maximum_usage] int,
+	[info_unit_id] int,
+	[sys_log_tag] varchar(60),
+	[event_log_type] varchar(60),
+	[generic_file_name] varchar(60),
+	[system_id] int,
     PRIMARY KEY ([system_event_id]));
 
 CREATE TABLE dbo.[system_event_property] (

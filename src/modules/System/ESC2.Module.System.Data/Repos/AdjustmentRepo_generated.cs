@@ -59,18 +59,15 @@ namespace ESC2.Module.System.Data.Repos
             return obj;
         }
 
-
         public override List<DbQueryParameter> ToParameters(ESC2.Module.System.Data.DataObjects.Adjustment obj)
-         {
-             List<DbQueryParameter> parameters = new List<DbQueryParameter>();
-             parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
-             parameters.Add(new DbQueryParameter("Type", obj.Type, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("Details", obj.Details, DbQueryParameterType.String));
-             parameters.Add(new DbQueryParameter("AdjustmentSetId", obj.AdjustmentSetId, DbQueryParameterType.Guid));
+        {
+            List<DbQueryParameter> parameters = new List<DbQueryParameter>();
+            parameters.Add(new DbQueryParameter("Id", obj.Id, DbQueryParameterType.Guid));
+            parameters.Add(new DbQueryParameter("Type", obj.Type, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("Details", obj.Details, DbQueryParameterType.String));
+            parameters.Add(new DbQueryParameter("AdjustmentSetId", obj.AdjustmentSetId, DbQueryParameterType.Guid));
 
-             return parameters;
-         }
-
-
+            return parameters;
+        }
     }
 }

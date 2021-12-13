@@ -1,7 +1,10 @@
 {
   "UseSchemas": false,
-  "ProjectFolder": "libraries\\ESC2.Library.Warehouse.Data",
-  "BaseNamespace": "ESC2.Library.Warehouse.Data",
+  "BuildShared": false,
+  "ProjectFolder": "",
+  "ProjectBaseNamespace": "ESC2.Module.System.Data",
+  "SharedProjectFolder": "..\\..\\..\\Libraries\\ESC2.Library.Data",
+  "SharedProjectBaseNamespace": "ESC2.Library.Data",
   "Tables": [
     {
       "Schema": "dbo",
