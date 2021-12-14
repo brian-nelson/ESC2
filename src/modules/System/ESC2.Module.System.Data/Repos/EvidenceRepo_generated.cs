@@ -25,11 +25,11 @@ namespace ESC2.Module.System.Data.Repos
 
         public override string InsertSql => @"
             INSERT INTO [dbo].[evidence] (
-                [dbo].[evidence].[EvidenceId],
-                [dbo].[evidence].[DataLocation],
-                [dbo].[evidence].[MimeType],
-                [dbo].[evidence].[CreatedOn],
-                [dbo].[evidence].[EvidenceSetId])
+                [dbo].[evidence].[evidence_id],
+                [dbo].[evidence].[data_location],
+                [dbo].[evidence].[mime_type],
+                [dbo].[evidence].[created_on],
+                [dbo].[evidence].[evidence_set_id])
             VALUES ( 
                 @Id,
                 @DataLocation,

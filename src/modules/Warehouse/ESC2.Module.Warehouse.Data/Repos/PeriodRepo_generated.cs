@@ -25,28 +25,32 @@ namespace ESC2.Module.System.Data.Repos
 
         public override string InsertSql => @"
             INSERT INTO [dbo].[period] (
-                [dbo].[period].[PeriodId],
-                [dbo].[period].[Year],
-                [dbo].[period].[Month],
-                [dbo].[period].[Day])
+                [dbo].[period].[period_id],
+                [dbo].[period].[year],
+                [dbo].[period].[month],
+                [dbo].[period].[day],
+                [dbo].[period].[day_of_week])
             VALUES ( 
                 @Id,
                 @Year,
                 @Month,
-                @Day) ";
+                @Day,
+                @DayOfWeek) ";
 
         public override string UpdateSql => @"
             UPDATE [dbo].[period] 
             SET [dbo].[period].[year]=@Year,
                 [dbo].[period].[month]=@Month,
-                [dbo].[period].[day]=@Day
+                [dbo].[period].[day]=@Day,
+                [dbo].[period].[day_of_week]=@DayOfWeek
             WHERE [dbo].[period].[period_id]=@Id ";
 
         public override string SelectSql => @"
             SELECT [dbo].[period].[period_id],
                    [dbo].[period].[year],
                    [dbo].[period].[month],
-                   [dbo].[period].[day]
+                   [dbo].[period].[day],
+                   [dbo].[period].[day_of_week]
             FROM [dbo].[period] ";
 
         public override ESC2.Module.System.Data.DataObjects.Period ToObject(DataRow row)
@@ -56,6 +60,7 @@ namespace ESC2.Module.System.Data.Repos
             obj.Year = row.GetInt("year");
             obj.Month = row.GetInt("month");
             obj.Day = row.GetInt("day");
+            obj.DayOfWeek = row.GetByte("day_of_week");
             return obj;
         }
 
@@ -66,6 +71,7 @@ namespace ESC2.Module.System.Data.Repos
             parameters.Add(new DbQueryParameter("Year", obj.Year, DbQueryParameterType.Int32));
             parameters.Add(new DbQueryParameter("Month", obj.Month, DbQueryParameterType.Int32));
             parameters.Add(new DbQueryParameter("Day", obj.Day, DbQueryParameterType.Int32));
+            parameters.Add(new DbQueryParameter("DayOfWeek", obj.DayOfWeek, DbQueryParameterType.Byte));
 
             return parameters;
         }

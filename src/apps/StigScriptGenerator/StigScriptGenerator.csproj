@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\libraries\ECS2.Library.Data\ESC2.Library.Data.csproj" />
     <ProjectReference Include="..\..\libraries\ESC2.Library.Data.Scripts\ESC2.Library.Data.Scripts.csproj" />
     <ProjectReference Include="..\..\libraries\ESC2.Library.Stig\ESC2.Library.Stig.csproj" />
   </ItemGroup>

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\libraries\ESC2.Library.Data.SqlServer\ESC2.Library.Data.SqlServer.csproj" />
+    <ProjectReference Include="..\..\libraries\ESC2.Library.Data\ESC2.Library.Data.csproj" />
+    <ProjectReference Include="..\..\libraries\ESC2.Library.Etl\ESC2.Library.Etl.csproj" />
+    <ProjectReference Include="..\..\libraries\ESC2.Library.Stig\ESC2.Library.Stig.csproj" />
+    <ProjectReference Include="..\..\modules\System\ESC2.Module.System.Data\ESC2.Module.System.Data.csproj" />
+  </ItemGroup>
+
+</Project>

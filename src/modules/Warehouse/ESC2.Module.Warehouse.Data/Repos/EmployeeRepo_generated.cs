@@ -25,10 +25,10 @@ namespace ESC2.Module.System.Data.Repos
 
         public override string InsertSql => @"
             INSERT INTO [dbo].[employee] (
-                [dbo].[employee].[EmployeeId],
-                [dbo].[employee].[RoleId],
-                [dbo].[employee].[GivenName],
-                [dbo].[employee].[FamilyName])
+                [dbo].[employee].[employee_id],
+                [dbo].[employee].[role_id],
+                [dbo].[employee].[given_name],
+                [dbo].[employee].[family_name])
             VALUES ( 
                 @Id,
                 @RoleId,

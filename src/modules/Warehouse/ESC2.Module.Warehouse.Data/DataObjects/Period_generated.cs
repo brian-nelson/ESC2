@@ -13,11 +13,13 @@ namespace ESC2.Module.System.Data.DataObjects
     {
         public Period()
         {
+            Id = 0;
         }
 
         public long Id { get; set; }
         public int Year { get; set; }
         public int Month { get; set; }
         public int Day { get; set; }
+        public byte DayOfWeek { get; set; }
     }
 }

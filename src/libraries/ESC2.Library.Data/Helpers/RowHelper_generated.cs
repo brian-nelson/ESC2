@@ -42,7 +42,7 @@ namespace ESC2.Library.Data.Helpers
 
         public static long GetLong(this DataRow row, string columnName)
         {
-            return (long)row[columnName];
+            return Convert.ToInt64(row[columnName]);
         }
 
         public static long? GetNullableLong(this DataRow row, string columnName)
@@ -52,7 +52,7 @@ namespace ESC2.Library.Data.Helpers
                 return null;
             }
 
-            return (long)row[columnName];
+            return Convert.ToInt64(row[columnName]);
         }
 
         public static short GetShort(this DataRow row, string columnName)
@@ -123,6 +123,21 @@ namespace ESC2.Library.Data.Helpers
             }
 
             return (Double)row[columnName];
+        }
+
+        public static byte GetByte(this DataRow row, string columnName)
+        {
+            return (byte)row[columnName];
+        }
+
+        public static byte? GetNullableByte(this DataRow row, string columnName)
+        {
+            if (row[columnName] == DBNull.Value)
+            {
+                return null;
+            }
+
+            return (byte)row[columnName];
         }
     }
 }

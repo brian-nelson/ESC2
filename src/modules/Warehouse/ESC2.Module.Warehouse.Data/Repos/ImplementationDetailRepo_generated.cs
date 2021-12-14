@@ -25,14 +25,14 @@ namespace ESC2.Module.System.Data.Repos
 
         public override string InsertSql => @"
             INSERT INTO [dbo].[implementation_detail] (
-                [dbo].[implementation_detail].[ImplementationDetailId],
-                [dbo].[implementation_detail].[ImplementationId],
-                [dbo].[implementation_detail].[RuleId],
-                [dbo].[implementation_detail].[Status],
-                [dbo].[implementation_detail].[FindingDetails],
-                [dbo].[implementation_detail].[Comments],
-                [dbo].[implementation_detail].[SeverityOverride],
-                [dbo].[implementation_detail].[SeverityJustification])
+                [dbo].[implementation_detail].[implementation_detail_id],
+                [dbo].[implementation_detail].[implementation_id],
+                [dbo].[implementation_detail].[rule_id],
+                [dbo].[implementation_detail].[status],
+                [dbo].[implementation_detail].[finding_details],
+                [dbo].[implementation_detail].[comments],
+                [dbo].[implementation_detail].[severity_override],
+                [dbo].[implementation_detail].[severity_justification])
             VALUES ( 
                 @Id,
                 @ImplementationId,

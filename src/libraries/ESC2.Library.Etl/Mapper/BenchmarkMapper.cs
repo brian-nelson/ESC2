@@ -5,7 +5,7 @@ namespace ESC2.Library.Etl.Mapper
 {
     public static class BenchmarkMapper
     {
-        public static ESC2.Module.System.Data.DataObjects.ImplementationGuide ToStig(
+        public static ESC2.Module.System.Data.DataObjects.ImplementationGuide ToImplementationGuide(
             Benchmark benchmark)
         {
             var stig = new ESC2.Module.System.Data.DataObjects.ImplementationGuide
@@ -61,6 +61,11 @@ namespace ESC2.Library.Etl.Mapper
             if (status.Equals("interim", StringComparison.InvariantCultureIgnoreCase))
             {
                 return "IN";
+            }
+
+            if (status.Equals(""))
+            {
+                return "UN";
             }
 
             throw new Exception("Unknown version status");

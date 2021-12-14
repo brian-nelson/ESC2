@@ -25,10 +25,10 @@ namespace ESC2.Module.System.Data.Repos
 
         public override string InsertSql => @"
             INSERT INTO [dbo].[asset_type] (
-                [dbo].[asset_type].[AssetTypeId],
-                [dbo].[asset_type].[AssetGroupId],
-                [dbo].[asset_type].[ImplementationGuideId],
-                [dbo].[asset_type].[Name])
+                [dbo].[asset_type].[asset_type_id],
+                [dbo].[asset_type].[asset_group_id],
+                [dbo].[asset_type].[implementation_guide_id],
+                [dbo].[asset_type].[name])
             VALUES ( 
                 @Id,
                 @AssetGroupId,

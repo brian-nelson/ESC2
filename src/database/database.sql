@@ -113,7 +113,7 @@ CREATE TABLE dbo.[implementation] (
 
 CREATE TABLE dbo.[implementation_guide] (
     [implementation_guide_id] uniqueidentifier NOT NULL,
-	[number] VARCHAR(50) NOT NULL,
+	[number] VARCHAR(100) NOT NULL,
 	[type] VARCHAR(50) NOT NULL,
 	PRIMARY KEY ([implementation_guide_id]));
 
@@ -138,10 +138,10 @@ CREATE TABLE dbo.[rule] (
 	[severity] CHAR(1) NOT NULL,
 	[version] VARCHAR(50) NOT NULL,
 	[title] VARCHAR(max) NOT NULL,
-	[discussion] varchar(max) NOT NULL,
+	[discussion] varchar(max),
 	[fix] VARCHAR(max) NOT NULL,
 	[check] VARCHAR(max) NOT NULL,
-	[cci] VARCHAR(20) NOT NULL,
+	[cci] VARCHAR(20),
 	[version_id] uniqueidentifier NOT NULL,
 	PRIMARY KEY ([rule_id]));
 
@@ -226,7 +226,7 @@ ALTER TABLE dbo.[implementation_rule]
 
 -- Accepted, Deprecated, Draft, Incomplete, Interim
 ALTER TABLE dbo.[version]
-    ADD CONSTRAINT chk_version_status CHECK ([status] IN ('A', 'DP', 'DR', 'IC', 'IN'));
+    ADD CONSTRAINT chk_version_status CHECK ([status] IN ('A', 'DP', 'DR', 'IC', 'IN', 'UN'));
 
 -- Low, Medium, High
 ALTER TABLE dbo.[RULE]

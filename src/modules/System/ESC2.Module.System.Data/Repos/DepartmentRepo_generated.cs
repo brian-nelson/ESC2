@@ -25,8 +25,8 @@ namespace ESC2.Module.System.Data.Repos
 
         public override string InsertSql => @"
             INSERT INTO [dbo].[department] (
-                [dbo].[department].[DepartmentId],
-                [dbo].[department].[Name])
+                [dbo].[department].[department_id],
+                [dbo].[department].[name])
             VALUES ( 
                 @Id,
                 @Name) ";

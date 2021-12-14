@@ -25,8 +25,8 @@ namespace ESC2.Module.System.Data.Repos
 
         public override string InsertSql => @"
             INSERT INTO [dbo].[system_event_facility] (
-                [dbo].[system_event_facility].[SystemEventFacilityId],
-                [dbo].[system_event_facility].[Name])
+                [dbo].[system_event_facility].[system_event_facility_id],
+                [dbo].[system_event_facility].[name])
             VALUES ( 
                 @Id,
                 @Name) ";

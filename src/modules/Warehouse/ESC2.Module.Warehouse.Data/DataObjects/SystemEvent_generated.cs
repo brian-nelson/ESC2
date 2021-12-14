@@ -13,6 +13,7 @@ namespace ESC2.Module.System.Data.DataObjects
     {
         public SystemEvent()
         {
+            Id = 0;
         }
 
         public long Id { get; set; }

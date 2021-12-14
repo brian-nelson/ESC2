@@ -25,12 +25,12 @@ namespace ESC2.Module.System.Data.Repos
 
         public override string InsertSql => @"
             INSERT INTO [dbo].[user] (
-                [dbo].[user].[UserId],
-                [dbo].[user].[Role],
-                [dbo].[user].[IsEnabled],
-                [dbo].[user].[PasswordHash],
-                [dbo].[user].[PasswordSalt],
-                [dbo].[user].[EmployeeId])
+                [dbo].[user].[user_id],
+                [dbo].[user].[role],
+                [dbo].[user].[is_enabled],
+                [dbo].[user].[password_hash],
+                [dbo].[user].[password_salt],
+                [dbo].[user].[employee_id])
             VALUES ( 
                 @Id,
                 @Role,

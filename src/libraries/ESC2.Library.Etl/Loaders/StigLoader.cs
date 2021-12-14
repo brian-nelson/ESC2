@@ -27,7 +27,7 @@ namespace ESC2.Library.Etl.Loaders
             var benchmark = reader.GetBenchmark();
             var groups = reader.GetGroups();
 
-            var stig = BenchmarkMapper.ToStig(benchmark);
+            var stig = BenchmarkMapper.ToImplementationGuide(benchmark);
             
 
 

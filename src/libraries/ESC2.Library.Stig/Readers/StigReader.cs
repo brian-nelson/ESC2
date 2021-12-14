@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Web;
 using System.Xml;
+using ESC2.Library.Stig.Interfaces;
 using ESC2.Library.Stig.Objects;
 using Group = ESC2.Library.Stig.Objects.Group;
 
 namespace ESC2.Library.Stig.Readers
 {
-    public class StigReader
+    public class StigReader : IStigReader
     {
         private readonly XmlDocument _xml;
         private readonly XmlElement _xmlDoc;
@@ -23,6 +20,20 @@ namespace ESC2.Library.Stig.Readers
         {
             _xml = new XmlDocument();
             _xml.Load(filename);
+            _xmlDoc = _xml.DocumentElement;
+            _namespaceManager = new XmlNamespaceManager(_xml.NameTable);
+            _namespaceManager.AddNamespace("xccdf", _xmlDoc.NamespaceURI);
+            _namespaceManager.AddNamespace("dc", _xmlDoc.Attributes["xmlns:dc"].Value);
+            _filename = filename;
+        }
+
+        public StigReader(Stream stream, string filename)
+        {
+            TextReader reader = new StreamReader(stream);
+            string xml = reader.ReadToEnd();
+
+            _xml = new XmlDocument();
+            _xml.LoadXml(xml);
             _xmlDoc = _xml.DocumentElement;
             _namespaceManager = new XmlNamespaceManager(_xml.NameTable);
             _namespaceManager.AddNamespace("xccdf", _xmlDoc.NamespaceURI);
@@ -58,7 +69,7 @@ namespace ESC2.Library.Stig.Readers
             var referenceNode = _xmlDoc.SelectSingleNode("descendant::xccdf:reference", _namespaceManager);
             if (referenceNode != null)
             {
-                output.ReferenceHref = referenceNode.Attributes["href"].Value;
+                output.ReferenceHref = referenceNode.Attributes["href"]?.Value;
 
                 var publisherNode = referenceNode.SelectSingleNode("descendant::dc:publisher", _namespaceManager);
                 if (publisherNode != null)

@@ -45,6 +45,7 @@ CREATE TABLE dbo.[period] (
 	[year] int NOT NULL,
 	[month] int NOT NULL,
 	[day] int NOT NULL,
+	[day_of_week] tinyint NOT NULL,
 	PRIMARY KEY (period_id));
 
 CREATE TABLE dbo.[role] (

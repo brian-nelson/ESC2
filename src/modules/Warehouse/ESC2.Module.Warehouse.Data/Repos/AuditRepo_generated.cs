@@ -25,13 +25,13 @@ namespace ESC2.Module.System.Data.Repos
 
         public override string InsertSql => @"
             INSERT INTO [dbo].[audit] (
-                [dbo].[audit].[AuditId],
-                [dbo].[audit].[StartDate],
-                [dbo].[audit].[EndDate],
-                [dbo].[audit].[Status],
-                [dbo].[audit].[Summary],
-                [dbo].[audit].[EmployeeId],
-                [dbo].[audit].[ImplementationId])
+                [dbo].[audit].[audit_id],
+                [dbo].[audit].[start_date],
+                [dbo].[audit].[end_date],
+                [dbo].[audit].[status],
+                [dbo].[audit].[summary],
+                [dbo].[audit].[employee_id],
+                [dbo].[audit].[implementation_id])
             VALUES ( 
                 @Id,
                 @StartDate,

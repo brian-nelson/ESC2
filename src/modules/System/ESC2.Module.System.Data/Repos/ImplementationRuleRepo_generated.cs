@@ -25,18 +25,18 @@ namespace ESC2.Module.System.Data.Repos
 
         public override string InsertSql => @"
             INSERT INTO [dbo].[implementation_rule] (
-                [dbo].[implementation_rule].[ImplementationRuleId],
-                [dbo].[implementation_rule].[Status],
-                [dbo].[implementation_rule].[FindingDetails],
-                [dbo].[implementation_rule].[Comments],
-                [dbo].[implementation_rule].[SeverityOverride],
-                [dbo].[implementation_rule].[SeverityJustification],
-                [dbo].[implementation_rule].[CreatedOn],
-                [dbo].[implementation_rule].[LastModifiedOn],
-                [dbo].[implementation_rule].[AdjustmentSetId],
-                [dbo].[implementation_rule].[RuleId],
-                [dbo].[implementation_rule].[EvidenceSetId],
-                [dbo].[implementation_rule].[ImplementationId])
+                [dbo].[implementation_rule].[implementation_rule_id],
+                [dbo].[implementation_rule].[status],
+                [dbo].[implementation_rule].[finding_details],
+                [dbo].[implementation_rule].[comments],
+                [dbo].[implementation_rule].[severity_override],
+                [dbo].[implementation_rule].[severity_justification],
+                [dbo].[implementation_rule].[created_on],
+                [dbo].[implementation_rule].[last_modified_on],
+                [dbo].[implementation_rule].[adjustment_set_id],
+                [dbo].[implementation_rule].[rule_id],
+                [dbo].[implementation_rule].[evidence_set_id],
+                [dbo].[implementation_rule].[implementation_id])
             VALUES ( 
                 @Id,
                 @Status,
