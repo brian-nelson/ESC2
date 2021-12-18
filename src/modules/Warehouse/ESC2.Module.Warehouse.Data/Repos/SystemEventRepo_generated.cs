@@ -13,7 +13,7 @@ using ESC2.Library.Data.Objects;
 // named SystemEventRepo.cs
 namespace ESC2.Module.System.Data.Repos
 {
-    public partial class SystemEventRepo : AbstractIdentityRepo<ESC2.Module.System.Data.DataObjects.SystemEvent>
+    public partial class SystemEventRepo : AbstractIdentityRepo<ESC2.Module.System.Data.DataObjects.SystemEvent, Int64>
     {
         public SystemEventRepo(IDataProvider dataProvider)
              : base(dataProvider)

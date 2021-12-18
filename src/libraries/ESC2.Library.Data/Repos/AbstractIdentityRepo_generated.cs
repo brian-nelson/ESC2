@@ -11,8 +11,8 @@ using ESC2.Library.Data.Objects;
 
 namespace ESC2.Library.Data.Repos
 {
-    public abstract class AbstractIdentityRepo<T> : IIdentityRepo<T>
-        where T : IIdentityObject
+    public abstract class AbstractIdentityRepo<T, U> : IIdentityRepo<T, U>
+        where T : IIdentityObject<U>
     {
         protected readonly IDataProvider DataProvider;
         protected AbstractIdentityRepo(IDataProvider dataProvider)
@@ -28,22 +28,22 @@ namespace ESC2.Library.Data.Repos
         public abstract string UpdateSql { get; }
         public abstract string SelectSql { get; }
 
-        public void Delete(long id)
+        public void Delete(U id)
         {
             var sql = "DELETE FROM [{SchemaName}].[{TableName}] WHERE [{SchemaName}].[{TableName}].[{TableName}_id] = @Id";
             var parameters = new List<DbQueryParameter>()
             {
-                new DbQueryParameter("Id", id, DbQueryParameterType.Int64)
+                new DbQueryParameter("Id", id, GetPrimaryKeyParameterType())
             };
             DataProvider.Execute(sql, parameters);
         }
 
-        public T GetById(long id)
+        public T GetById(U id)
         {
             var sql = "{SelectSql} WHERE [{SchemaName}].[{TableName}].[{TableName}_id] = @Id";
             var parameters = new List<DbQueryParameter>()
             {
-                new DbQueryParameter("Id", id, DbQueryParameterType.Int64)
+                new DbQueryParameter("Id", id, GetPrimaryKeyParameterType())
             };
             var dt = DataProvider.GetData(sql, parameters);
             if (dt != null
@@ -55,11 +55,11 @@ namespace ESC2.Library.Data.Repos
             return default(T);
         }
 
-        protected long Insert(T obj)
+        protected U Insert(T obj)
         {
             var parameters = ToParameters(obj);
             DataProvider.Execute(InsertSql, parameters);
-            return 0;
+            return ConvertObject(0);
         }
 
         protected void Update(T obj)
@@ -68,7 +68,37 @@ namespace ESC2.Library.Data.Repos
             DataProvider.Execute(UpdateSql, parameters);
         }
 
-        public long Save(T obj)
+        protected DbQueryParameterType GetPrimaryKeyParameterType()
+        {
+            if (typeof(U) == typeof(long))
+            {
+                return DbQueryParameterType.Int64;
+            }
+
+            if (typeof(U) == typeof(int))
+            {
+                return DbQueryParameterType.Int32;
+            }
+
+            if (typeof(U) == typeof(short))
+            {
+                return DbQueryParameterType.Int16;
+            }
+
+            if (typeof(U) == typeof(byte))
+            {
+                return DbQueryParameterType.Byte;
+            }
+
+            throw new Exception("Unsupported data type");
+        }
+
+        protected U ConvertObject(object value)
+        {
+            return (U) Convert.ChangeType(value, typeof(U));
+        }
+
+        public U Save(T obj)
         {
             if (Exists(obj.Id))
             {
@@ -77,7 +107,7 @@ namespace ESC2.Library.Data.Repos
             }
             else
             {
-                long id = Insert(obj);
+                U id = Insert(obj);
                 obj.Id = id;
                 return obj.Id;
             }
@@ -139,21 +169,21 @@ namespace ESC2.Library.Data.Repos
             return default(T);
         }
 
-        public long GetCount()
+        public U GetCount()
         {
             var sql = $"SELECT COUNT(*) AS row_count FROM [{SchemaName}].[{TableName}]";
-            long result = Convert.ToInt64(GetValue(sql, "row_count", null));
+            U result = ConvertObject(GetValue(sql, "row_count", null));
             return result;
         }
 
-        public bool Exists(long id)
+        public bool Exists(U id)
         {
             var sql = $"SELECT COUNT(*) AS row_count FROM [{SchemaName}].[{TableName}]"
                     + $"WHERE [{SchemaName}].[{TableName}].[{TableName}_id] = @Id";
 
             var parameters = new List<DbQueryParameter>()
             {
-                new DbQueryParameter("Id", id, DbQueryParameterType.Int64)
+                new DbQueryParameter("Id", id, GetPrimaryKeyParameterType())
             };
 
             var dt = DataProvider.GetData(sql, parameters);

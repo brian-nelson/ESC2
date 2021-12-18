@@ -9,18 +9,18 @@ using ESC2.Library.Data.Interfaces;
 
 namespace ESC2.Module.System.Data.DataObjects
 {
-    public partial class SystemEventFact : IGuidObject
+    public partial class SystemEventFact : IIdentityObject<long>
     {
         public SystemEventFact()
         {
-            Id = Guid.NewGuid();
+            Id = -1;
         }
 
-        public Guid Id { get; set; }
+        public long Id { get; set; }
         public Guid AssetId { get; set; }
         public long PeriodId { get; set; }
-        public Guid SystemEventSeverityId { get; set; }
-        public Guid SystemEventFacilityId { get; set; }
+        public byte SystemEventSeverityId { get; set; }
+        public byte SystemEventFacilityId { get; set; }
         public long Count { get; set; }
     }
 }

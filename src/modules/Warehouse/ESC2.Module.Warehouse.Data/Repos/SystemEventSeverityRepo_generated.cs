@@ -13,7 +13,7 @@ using ESC2.Library.Data.Objects;
 // named SystemEventSeverityRepo.cs
 namespace ESC2.Module.System.Data.Repos
 {
-    public partial class SystemEventSeverityRepo : AbstractGuidRepo<ESC2.Module.System.Data.DataObjects.SystemEventSeverity>
+    public partial class SystemEventSeverityRepo : AbstractIdentityRepo<ESC2.Module.System.Data.DataObjects.SystemEventSeverity, Byte>
     {
         public SystemEventSeverityRepo(IDataProvider dataProvider)
              : base(dataProvider)
@@ -44,7 +44,7 @@ namespace ESC2.Module.System.Data.Repos
         public override ESC2.Module.System.Data.DataObjects.SystemEventSeverity ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.SystemEventSeverity();
-            obj.Id = row.GetGuid("system_event_severity_id");
+            obj.Id = row.GetByte("system_event_severity_id");
             obj.Name = row.GetString("name");
             return obj;
         }

@@ -146,21 +146,21 @@ CREATE TABLE dbo.[system_event_property] (
 
 --System Event Data Mart
 CREATE TABLE dbo.[system_event_fact] (
-	[system_event_fact_id] uniqueidentifier NOT NULL,
+	[system_event_fact_id] bigint NOT NULL IDENTITY,
 	[asset_id] uniqueidentifier NOT NULL,
 	[period_id] bigint NOT NULL,
-	[system_event_severity_id] uniqueidentifier NOT NULL,
-	[system_event_facility_id] uniqueidentifier NOT NULL,
+	[system_event_severity_id] tinyint NOT NULL,
+	[system_event_facility_id] tinyint NOT NULL,
 	[count] bigint NOT NULL,
 	PRIMARY KEY ([system_event_fact_id]));
 
 CREATE TABLE dbo.[system_event_facility] (
-    [system_event_facility_id] uniqueidentifier NOT NULL,
+    [system_event_facility_id] tinyint NOT NULL,
 	[name] varchar(50) NOT NULL,
     PRIMARY KEY ([system_event_facility_id]));
 
 CREATE TABLE dbo.[system_event_severity] (
-    [system_event_severity_id] uniqueidentifier NOT NULL,
+    [system_event_severity_id] tinyint NOT NULL,
 	[name] varchar(50) NOT NULL,
     PRIMARY KEY ([system_event_severity_id]));
 

@@ -5,8 +5,8 @@ using System;
 
 namespace ESC2.Library.Data.Interfaces
 {
-    public interface IIdentityObject
+    public interface IIdentityObject<T>
     {
-        long Id { get; set; }
+        T Id { get; set; }
     }
 }

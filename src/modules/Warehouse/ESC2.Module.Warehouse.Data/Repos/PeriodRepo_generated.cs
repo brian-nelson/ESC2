@@ -13,7 +13,7 @@ using ESC2.Library.Data.Objects;
 // named PeriodRepo.cs
 namespace ESC2.Module.System.Data.Repos
 {
-    public partial class PeriodRepo : AbstractIdentityRepo<ESC2.Module.System.Data.DataObjects.Period>
+    public partial class PeriodRepo : AbstractIdentityRepo<ESC2.Module.System.Data.DataObjects.Period, Int64>
     {
         public PeriodRepo(IDataProvider dataProvider)
              : base(dataProvider)

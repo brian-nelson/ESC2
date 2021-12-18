@@ -13,7 +13,7 @@ using ESC2.Library.Data.Objects;
 // named SystemEventFacilityRepo.cs
 namespace ESC2.Module.System.Data.Repos
 {
-    public partial class SystemEventFacilityRepo : AbstractGuidRepo<ESC2.Module.System.Data.DataObjects.SystemEventFacility>
+    public partial class SystemEventFacilityRepo : AbstractIdentityRepo<ESC2.Module.System.Data.DataObjects.SystemEventFacility, Byte>
     {
         public SystemEventFacilityRepo(IDataProvider dataProvider)
              : base(dataProvider)
@@ -44,7 +44,7 @@ namespace ESC2.Module.System.Data.Repos
         public override ESC2.Module.System.Data.DataObjects.SystemEventFacility ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.SystemEventFacility();
-            obj.Id = row.GetGuid("system_event_facility_id");
+            obj.Id = row.GetByte("system_event_facility_id");
             obj.Name = row.GetString("name");
             return obj;
         }

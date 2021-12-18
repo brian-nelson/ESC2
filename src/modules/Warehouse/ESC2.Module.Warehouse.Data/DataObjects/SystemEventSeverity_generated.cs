@@ -9,14 +9,14 @@ using ESC2.Library.Data.Interfaces;
 
 namespace ESC2.Module.System.Data.DataObjects
 {
-    public partial class SystemEventSeverity : IGuidObject
+    public partial class SystemEventSeverity : IIdentityObject<byte>
     {
         public SystemEventSeverity()
         {
-            Id = Guid.NewGuid();
+            Id = 0;
         }
 
-        public Guid Id { get; set; }
+        public byte Id { get; set; }
         public string Name { get; set; }
     }
 }

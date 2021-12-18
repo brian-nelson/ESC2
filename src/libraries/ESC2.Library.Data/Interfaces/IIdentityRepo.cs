@@ -5,10 +5,10 @@ using System;
 
 namespace ESC2.Library.Data.Interfaces
 {
-    public interface IIdentityRepo<T> where T:IIdentityObject
+    public interface IIdentityRepo<T, U> where T:IIdentityObject<U>
     {
-        long Save(T obj);
-        T GetById(long id);
-        void Delete(long id);
+        U Save(T obj);
+        T GetById(U id);
+        void Delete(U id);
     }
 }
