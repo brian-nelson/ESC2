@@ -8,7 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\libraries\ESC2.Library.Data.SqlServer\ESC2.Library.Data.SqlServer.csproj" />
     <ProjectReference Include="..\..\libraries\ESC2.Library.Data\ESC2.Library.Data.csproj" />
-    <ProjectReference Include="..\..\modules\Warehouse\ESC2.Module.Warehouse.Data\ESC2.Module.Warehouse.Data.csproj" />
+    <ProjectReference Include="..\..\modules\System\ESC2.Module.System.Data\ESC2.Module.System.Data.csproj" />
   </ItemGroup>
 
 </Project>

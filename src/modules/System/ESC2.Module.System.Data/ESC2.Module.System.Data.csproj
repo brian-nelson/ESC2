@@ -8,4 +8,8 @@
     <ProjectReference Include="..\..\..\libraries\ESC2.Library.Data\ESC2.Library.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataObjects\" />
+  </ItemGroup>
+
 </Project>

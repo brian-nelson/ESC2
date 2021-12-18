@@ -1,7 +1,7 @@
 ﻿using System;
 using ESC2.Library.Data.SqlServer.DataProvider;
-using ESC2.Module.System.Data.DataObjects;
-using ESC2.Module.System.Data.Repos;
+using ESC2.Module.System.Data.DataObjects.Warehouse;
+using ESC2.Module.System.Data.Repos.Warehouse;
 
 namespace ESC2.Apps.Warehouse.Setup
 {
@@ -9,10 +9,10 @@ namespace ESC2.Apps.Warehouse.Setup
     {
         static void Main(string[] args)
         {
-            string connectionString = "Server=localhost;Database=SecurityWarehouse;Trusted_Connection=True;";
+            string connectionString = "Server=localhost;Database=ESC2;Trusted_Connection=True;";
             var dbProvider = new SqlServerDataProvider(connectionString);
 
-            var periodRepo = new PeriodRepo(dbProvider);
+            var periodRepo = new DayPeriodRepo(dbProvider);
 
             int i = 0;
             DateTime current = new DateTime(1970, 1, 1);
@@ -20,7 +20,7 @@ namespace ESC2.Apps.Warehouse.Setup
 
             do
             {
-                var period = new Period
+                var period = new DayPeriod
                 {
                     Id = i,
                     Day = current.Day,

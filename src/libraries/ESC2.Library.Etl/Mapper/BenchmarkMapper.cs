@@ -1,14 +1,16 @@
 ﻿using System;
 using ESC2.Library.Stig.Objects;
+using ESC2.Module.System.Data.DataObjects.Operational;
+using Version = ESC2.Module.System.Data.DataObjects.Operational.Version;
 
 namespace ESC2.Library.Etl.Mapper
 {
     public static class BenchmarkMapper
     {
-        public static ESC2.Module.System.Data.DataObjects.ImplementationGuide ToImplementationGuide(
+        public static ImplementationGuide ToImplementationGuide(
             Benchmark benchmark)
         {
-            var stig = new ESC2.Module.System.Data.DataObjects.ImplementationGuide
+            var stig = new ImplementationGuide
             {
                 Number = benchmark.Id
             };
@@ -16,11 +18,11 @@ namespace ESC2.Library.Etl.Mapper
             return stig;
         }
 
-        public static ESC2.Module.System.Data.DataObjects.Version ToVersion(
+        public static Version ToVersion(
             Guid implementationGuideId,
             Benchmark benchmark)
         {
-            var version = new ESC2.Module.System.Data.DataObjects.Version
+            var version = new Version
             {
                 Number = benchmark.Version,
                 Status = GetVersionStatusCode(benchmark.Status),

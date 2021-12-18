@@ -1,5 +1,5 @@
 {
-  "UseSchemas": false,
+  "OrganizeBySchema": true,
   "BuildShared": true,
   "ProjectFolder": "",
   "ProjectBaseNamespace": "ESC2.Module.System.Data",
@@ -7,76 +7,120 @@
   "SharedProjectBaseNamespace": "ESC2.Library.Data",
   "Tables": [
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "adjustment"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "adjustment_set"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "asset_group"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "asset_type"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "asset"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "asset_history"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "audit"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "audit_rule"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "department"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "employee"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "evidence"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "evidence_set"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "implementation"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "implementation_rule"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "implementation_guide"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "rule"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "user"
     },
     {
-      "Schema": "dbo",
+      "Schema": "operational",
       "Name": "version"
+    },
+    {
+      "Schema": "logging",
+      "Name": "system_event"
+    },
+    {
+      "Schema": "logging",
+      "Name": "system_event_history"
+    },
+    {
+      "Schema": "logging",
+      "Name": "system_event_property"
+    },
+    {
+      "Schema": "logging",
+      "Name": "system_event_property_history"
+    },
+    {
+      "Schema": "warehouse",
+      "Name": "audit_fact"
+    },
+    {
+      "Schema": "warehouse",
+      "Name": "day_period"
+    },
+    {
+      "Schema": "warehouse",
+      "Name": "implementation_fact"
+    },
+    {
+      "Schema": "warehouse",
+      "Name": "log_daily_fact"
+    },
+    {
+      "Schema": "warehouse",
+      "Name": "log_severity"
+    },
+    {
+      "Schema": "warehouse",
+      "Name": "log_source"
+    },
+    {
+      "Schema": "warehouse",
+      "Name": "resource_cost_fact"
     }
 
   ]

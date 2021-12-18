@@ -5,6 +5,7 @@ using ESC2.Library.Etl.Mapper;
 using ESC2.Library.Stig.Interfaces;
 using ESC2.Library.Stig.Readers;
 using ESC2.Module.System.Data.Repos;
+using ESC2.Module.System.Data.Repos.Operational;
 
 namespace ESC2.Apps.StigLoader
 {

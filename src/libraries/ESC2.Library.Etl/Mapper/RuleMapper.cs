@@ -5,9 +5,9 @@ namespace ESC2.Library.Etl.Mapper
 {
     public static class RuleMapper
     {
-        public static ESC2.Module.System.Data.DataObjects.Rule ToDataRule(Rule rule)
+        public static Module.System.Data.DataObjects.Operational.Rule ToDataRule(Rule rule)
         {
-            var output = new ESC2.Module.System.Data.DataObjects.Rule
+            var output = new Module.System.Data.DataObjects.Operational.Rule
             {
                 Number = rule.Id,
                 Severity = GetRuleSeverity(rule.Severity),

@@ -7,6 +7,7 @@
   <ItemGroup>
     <Folder Include="Helpers\" />
     <Folder Include="Objects\" />
+    <Folder Include="Repos\" />
   </ItemGroup>
 
 </Project>
