@@ -89,6 +89,9 @@ namespace ESC2.Module.System.Data.Repos.Operational
                    [operational].[version].[last_modified_on]
             FROM [operational].[version] ";
 
+        public override string DeleteSql => @"DELETE FROM [operational].[version] WHERE [operational].[version].[version_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [operational].[version].[version_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Operational.Version ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Operational.Version();

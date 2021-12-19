@@ -55,6 +55,9 @@ namespace ESC2.Module.System.Data.Repos.Warehouse
                    [warehouse].[log_daily_fact].[count]
             FROM [warehouse].[log_daily_fact] ";
 
+        public override string DeleteSql => @"DELETE FROM [warehouse].[log_daily_fact] WHERE [warehouse].[log_daily_fact].[log_daily_fact_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [warehouse].[log_daily_fact].[log_daily_fact_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Warehouse.LogDailyFact ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Warehouse.LogDailyFact();

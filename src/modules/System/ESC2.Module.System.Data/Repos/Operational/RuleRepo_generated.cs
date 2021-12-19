@@ -89,6 +89,9 @@ namespace ESC2.Module.System.Data.Repos.Operational
                    [operational].[rule].[last_modified_on]
             FROM [operational].[rule] ";
 
+        public override string DeleteSql => @"DELETE FROM [operational].[rule] WHERE [operational].[rule].[rule_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [operational].[rule].[rule_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Operational.Rule ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Operational.Rule();

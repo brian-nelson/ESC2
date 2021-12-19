@@ -21,8 +21,8 @@ namespace ESC2.Module.System.Data.Repos.Operational
             string ruleNumber)
         {
             string sql = SelectSql +
-                         " WHERE version_id = @versionId" +
-                         " AND number = @ruleNumber";
+                         $" WHERE [{SchemaName}].[{TableName}].[version_id] = @versionId" +
+                         $" AND [{SchemaName}].[{TableName}].[number] = @ruleNumber";
 
             var parameters = new List<DbQueryParameter>
             {

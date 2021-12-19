@@ -53,6 +53,9 @@ namespace ESC2.Module.System.Data.Repos.Warehouse
                    [warehouse].[day_period].[day_of_week]
             FROM [warehouse].[day_period] ";
 
+        public override string DeleteSql => @"DELETE FROM [warehouse].[day_period] WHERE [warehouse].[day_period].[day_period_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [warehouse].[day_period].[day_period_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Warehouse.DayPeriod ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Warehouse.DayPeriod();

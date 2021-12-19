@@ -63,6 +63,9 @@ namespace ESC2.Module.System.Data.Repos.Warehouse
                    [warehouse].[audit_fact].[hours_to_complete]
             FROM [warehouse].[audit_fact] ";
 
+        public override string DeleteSql => @"DELETE FROM [warehouse].[audit_fact] WHERE [warehouse].[audit_fact].[audit_fact_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [warehouse].[audit_fact].[audit_fact_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Warehouse.AuditFact ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Warehouse.AuditFact();

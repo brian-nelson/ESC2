@@ -30,10 +30,12 @@ namespace ESC2.Library.Data.Repos
         public abstract string InsertSql { get; }
         public abstract string UpdateSql { get; }
         public abstract string SelectSql { get; }
+        public abstract string DeleteSql { get; }
+        public abstract string GetByIdSql { get; }
 
         public void Delete(U id)
         {
-            var sql = "DELETE FROM [{SchemaName}].[{TableName}] WHERE [{SchemaName}].[{TableName}].[{TableName}_id] = @Id";
+            var sql = DeleteSql;
             var parameters = new List<DbQueryParameter>()
             {
                 new DbQueryParameter("Id", id, PrimaryKeyParameterType)
@@ -43,7 +45,7 @@ namespace ESC2.Library.Data.Repos
 
         public T GetById(U id)
         {
-            var sql = "{SelectSql} WHERE [{SchemaName}].[{TableName}].[{TableName}_id] = @Id";
+            var sql = GetByIdSql;
             var parameters = new List<DbQueryParameter>()
             {
                 new DbQueryParameter("Id", id, PrimaryKeyParameterType)

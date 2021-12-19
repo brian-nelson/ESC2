@@ -73,6 +73,9 @@ namespace ESC2.Module.System.Data.Repos.Operational
                    [operational].[user].[last_modified_on]
             FROM [operational].[user] ";
 
+        public override string DeleteSql => @"DELETE FROM [operational].[user] WHERE [operational].[user].[user_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [operational].[user].[user_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Operational.User ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Operational.User();

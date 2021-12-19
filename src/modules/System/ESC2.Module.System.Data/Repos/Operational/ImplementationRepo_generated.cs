@@ -81,6 +81,9 @@ namespace ESC2.Module.System.Data.Repos.Operational
                    [operational].[implementation].[last_modified_on]
             FROM [operational].[implementation] ";
 
+        public override string DeleteSql => @"DELETE FROM [operational].[implementation] WHERE [operational].[implementation].[implementation_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [operational].[implementation].[implementation_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Operational.Implementation ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Operational.Implementation();

@@ -51,6 +51,9 @@ namespace ESC2.Module.System.Data.Repos.Warehouse
                    [warehouse].[resource_cost_fact].[cost_per_hour]
             FROM [warehouse].[resource_cost_fact] ";
 
+        public override string DeleteSql => @"DELETE FROM [warehouse].[resource_cost_fact] WHERE [warehouse].[resource_cost_fact].[resource_cost_fact_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [warehouse].[resource_cost_fact].[resource_cost_fact_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Warehouse.ResourceCostFact ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Warehouse.ResourceCostFact();

@@ -65,6 +65,9 @@ namespace ESC2.Module.System.Data.Repos.Operational
                    [operational].[adjustment].[last_modified_on]
             FROM [operational].[adjustment] ";
 
+        public override string DeleteSql => @"DELETE FROM [operational].[adjustment] WHERE [operational].[adjustment].[adjustment_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [operational].[adjustment].[adjustment_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Operational.Adjustment ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Operational.Adjustment();

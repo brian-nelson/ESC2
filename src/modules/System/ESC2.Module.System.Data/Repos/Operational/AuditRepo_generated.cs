@@ -77,6 +77,9 @@ namespace ESC2.Module.System.Data.Repos.Operational
                    [operational].[audit].[last_modified_on]
             FROM [operational].[audit] ";
 
+        public override string DeleteSql => @"DELETE FROM [operational].[audit] WHERE [operational].[audit].[audit_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [operational].[audit].[audit_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Operational.Audit ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Operational.Audit();

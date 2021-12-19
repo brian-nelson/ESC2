@@ -49,6 +49,9 @@ namespace ESC2.Module.System.Data.Repos.Operational
                    [operational].[evidence_set].[created_on]
             FROM [operational].[evidence_set] ";
 
+        public override string DeleteSql => @"DELETE FROM [operational].[evidence_set] WHERE [operational].[evidence_set].[evidence_set_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [operational].[evidence_set].[evidence_set_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Operational.EvidenceSet ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Operational.EvidenceSet();

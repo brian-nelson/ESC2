@@ -53,6 +53,9 @@ namespace ESC2.Module.System.Data.Repos.Operational
                    [operational].[asset_history].[asset_id]
             FROM [operational].[asset_history] ";
 
+        public override string DeleteSql => @"DELETE FROM [operational].[asset_history] WHERE [operational].[asset_history].[asset_history_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [operational].[asset_history].[asset_history_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Operational.AssetHistory ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Operational.AssetHistory();

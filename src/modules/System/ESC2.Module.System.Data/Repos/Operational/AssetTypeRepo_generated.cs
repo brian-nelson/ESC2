@@ -81,6 +81,9 @@ namespace ESC2.Module.System.Data.Repos.Operational
                    [operational].[asset_type].[last_modified_on]
             FROM [operational].[asset_type] ";
 
+        public override string DeleteSql => @"DELETE FROM [operational].[asset_type] WHERE [operational].[asset_type].[asset_type_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [operational].[asset_type].[asset_type_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Operational.AssetType ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Operational.AssetType();

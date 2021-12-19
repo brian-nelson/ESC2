@@ -57,6 +57,9 @@ namespace ESC2.Module.System.Data.Repos.Operational
                    [operational].[department].[last_modified_on]
             FROM [operational].[department] ";
 
+        public override string DeleteSql => @"DELETE FROM [operational].[department] WHERE [operational].[department].[department_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [operational].[department].[department_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Operational.Department ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Operational.Department();

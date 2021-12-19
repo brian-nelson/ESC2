@@ -13,8 +13,8 @@ namespace ESC2.Module.System.Data.Repos.Operational
             string versionNumber)
         {
             string sql = SelectSql +
-                         " WHERE implementation_guide_id = @implementationGuideId" +
-                         " AND number = @versionNumber";
+                         $" WHERE [{SchemaName}].[{TableName}].[implementation_guide_id] = @implementationGuideId" +
+                         $" AND [{SchemaName}].[{TableName}].[number] = @versionNumber";
 
             var parameters = new List<DbQueryParameter>
             {

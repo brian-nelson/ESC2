@@ -41,6 +41,9 @@ namespace ESC2.Module.System.Data.Repos.Warehouse
                    [warehouse].[log_severity].[name]
             FROM [warehouse].[log_severity] ";
 
+        public override string DeleteSql => @"DELETE FROM [warehouse].[log_severity] WHERE [warehouse].[log_severity].[log_severity_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [warehouse].[log_severity].[log_severity_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Warehouse.LogSeverity ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Warehouse.LogSeverity();

@@ -129,6 +129,9 @@ namespace ESC2.Module.System.Data.Repos.Logging
                    [logging].[system_event_history].[system_id]
             FROM [logging].[system_event_history] ";
 
+        public override string DeleteSql => @"DELETE FROM [logging].[system_event_history] WHERE [logging].[system_event_history].[system_event_history_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [logging].[system_event_history].[system_event_history_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Logging.SystemEventHistory ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Logging.SystemEventHistory();

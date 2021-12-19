@@ -41,6 +41,9 @@ namespace ESC2.Module.System.Data.Repos.Warehouse
                    [warehouse].[log_source].[name]
             FROM [warehouse].[log_source] ";
 
+        public override string DeleteSql => @"DELETE FROM [warehouse].[log_source] WHERE [warehouse].[log_source].[log_source_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [warehouse].[log_source].[log_source_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Warehouse.LogSource ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Warehouse.LogSource();

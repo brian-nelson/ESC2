@@ -49,6 +49,9 @@ namespace ESC2.Module.System.Data.Repos.Logging
                    [logging].[system_event_property_history].[parameter_value]
             FROM [logging].[system_event_property_history] ";
 
+        public override string DeleteSql => @"DELETE FROM [logging].[system_event_property_history] WHERE [logging].[system_event_property_history].[system_event_property_history_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [logging].[system_event_property_history].[system_event_property_history_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Logging.SystemEventPropertyHistory ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Logging.SystemEventPropertyHistory();

@@ -63,6 +63,9 @@ namespace ESC2.Module.System.Data.Repos.Warehouse
                    [warehouse].[implementation_fact].[hours_to_complete]
             FROM [warehouse].[implementation_fact] ";
 
+        public override string DeleteSql => @"DELETE FROM [warehouse].[implementation_fact] WHERE [warehouse].[implementation_fact].[implementation_fact_id] = @Id";
+
+        public override string GetByIdSql => $@"{SelectSql} WHERE [warehouse].[implementation_fact].[implementation_fact_id = @Id";
         public override ESC2.Module.System.Data.DataObjects.Warehouse.ImplementationFact ToObject(DataRow row)
         {
             var obj = new ESC2.Module.System.Data.DataObjects.Warehouse.ImplementationFact();
