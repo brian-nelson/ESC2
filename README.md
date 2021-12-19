@@ -1,5 +1,5 @@
 # Enterprise Security Configuration and Compliance (ESC2) Database
 
-# stig-tools
+This system is being built to support 800-171 Compliance.  
 
-**Warning this repo is still beta and table structure will change**
+It is a work in progress and isn't functional at the moment.
